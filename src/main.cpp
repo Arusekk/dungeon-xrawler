@@ -1,11 +1,13 @@
 #include "dungeon-xrawler.h"
 
-int main() {
-  printf("Witaj, synu.");
+int main(int argc, char *argv[]) {
+  chdir(dirname(argv[0]));
+  
+  printf("Witaj, synu.\n");
 #ifdef __WIN32
   system("pause");
 #else
-  printf("\nPress any key to continue . . . ");
+  printf("Press any key to continue . . . ");
   getchar();
 #endif
   return 0;
