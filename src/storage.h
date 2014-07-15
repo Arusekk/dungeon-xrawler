@@ -6,5 +6,6 @@
 char board[MAXBOARD][MAXBOARD];
 int board_h,board_w;
 void rdboard(char*);
+void outboard();
 
 #endif // __STORAGE_H__
