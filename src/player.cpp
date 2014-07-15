@@ -14,26 +14,9 @@ left = false;
   return (up<<3)+(down<<2)+(left<<1)+right;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+int printhp(int a, int b) 
+{
+printf("%d", a);
+printf("/");	
+printf("%d", b);	
+}
