@@ -19,3 +19,18 @@ void rdboard(char *filename) {
     }
   }
 }
+
+void outboard()
+{
+for(int i = 0; i < board_h; i++)
+	{
+	for(int j = 0; j < board_w; j++)
+		printf("%c", board[i][j]);
+	printf("\n");
+	}	
+}
+
+
+
+
+
