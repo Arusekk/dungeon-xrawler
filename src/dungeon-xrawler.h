@@ -1,10 +1,14 @@
+#ifndef __DUNGEON_XRAWLER_H__
+#define __DUNGEON_XRAWLER_H__
+
+#include <unistd.h>
+#include <libgen.h>
 #include <cstdio>
 #include <cstdlib>
-#include <cunistd>
 #include <cmath>
 #include <bits/stdc++.h>
 #include "storage.h"
 #include "player.h"
 #include "screen.h"
 
-using namespace std;
+#endif // __DUNGEON_XRAWLER_H__

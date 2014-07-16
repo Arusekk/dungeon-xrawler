@@ -1,5 +1,7 @@
 #include "dungeon-xrawler.h"
 
+using namespace std;
+
 int main(int argc, char *argv[]) {
   chdir(dirname(argv[0]));
   init_ui();
@@ -9,6 +11,12 @@ int main(int argc, char *argv[]) {
   outboard();
   rdboard("gamedata/art/stickman.txt");
   outboard();
-  pause();
+  rdboard("gamedata/art/stickman2.txt");
+  outboard();
+  rdboard("gamedata/art/stickgirl.txt");
+  outboard();
+  rdboard("gamedata/art/stickgirl2.txt");
+  outboard();
+  syspause();
   return 0;
 }

@@ -1,18 +1,20 @@
 #include "dungeon-xrawler.h"
 
-int allowpoz(int h, int w) {
+int player_HP;
+int max_player_HP;
+int allowpoz(int x, int y) {
   int returnval=0;
-  if (board[h+1][w] != '#')
+  if (getboard(x,y+1) != '#')
     returnval |= sides::up;
-  if (board[h-1][w] != '#')
+  if (getboard(x,y-1) != '#')
     returnval |= sides::down;
-  if (board[h][w+1] != '#')
+  if (getboard(x+1,y) != '#')
     returnval |= sides::right;
-  if (board[h][w-1] != '#')
+  if (getboard(x-1,y) != '#')
     returnval |= sides::left;
   return returnval;
 }
 
-int printhp(int cur, int max) {
+void printhp(int cur, int max) {
   printf("%d/%d", cur, max);
 }

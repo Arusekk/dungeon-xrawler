@@ -1,5 +1,8 @@
 #include "dungeon-xrawler.h"
 
+char board[MAXBOARD][MAXBOARD];
+int board_h,board_w;
+
 void rdboard(char *filename) {
   int i,j;
   char buf[7];
@@ -32,6 +35,13 @@ void rdboard(char *filename) {
       if (flag) board[i][j]=' ';
     }
   }
+}
+
+char getboard(int x, int y) {
+  return board[y][x];
+}
+void setboard(int x, int y, char val) {
+  board[y][x]=val;
 }
 
 void outboard() {

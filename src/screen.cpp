@@ -1,6 +1,6 @@
 #include "dungeon-xrawler.h"
 
-void pause() {
+void syspause() {
 #ifdef __WIN32
   system("pause");
 #else
@@ -9,7 +9,7 @@ void pause() {
 #endif
 }
 
-void clear() {
+void sysclear() {
 #ifdef __WIN32
   system("cls");
 #else
@@ -21,6 +21,6 @@ void init_ui() {
 #ifdef __WIN32
   system("title Dungeon Xrawler");
 #endif
-  clear();
+  sysclear();
   printf("Witaj, synu.\n");
 }

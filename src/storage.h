@@ -3,8 +3,8 @@
 
 #define MAXBOARD 200
 
-char board[MAXBOARD][MAXBOARD];
-int board_h,board_w;
+char getboard(int x, int y);
+void setboard(int x, int y, char val);
 void rdboard(char *filename);
 void outboard();
 
