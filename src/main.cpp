@@ -4,6 +4,11 @@ using namespace std;
 
 int main(int argc, char *argv[]) {
   chdir(dirname(argv[0]));
+  setlocale(LC_ALL,"");
+  bindtextdomain("dungeon-xrawler",".");
+  textdomain("dungeon-xrawler");
+  
+  
   init_ui();
   rdboard("gamedata/levels/1.txt");
   outboard();

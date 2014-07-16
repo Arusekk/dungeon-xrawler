@@ -4,7 +4,7 @@ void syspause() {
 #ifdef __WIN32
   system("pause");
 #else
-  printf("Press any key to continue . . . ");
+  printf(_("Press any key to continue . . . "));
   getchar();
 #endif
 }
@@ -22,5 +22,5 @@ void init_ui() {
   system("title Dungeon Xrawler");
 #endif
   sysclear();
-  printf("Witaj, synu.\n");
+  printf(_("Welcome, son.\n"));
 }
