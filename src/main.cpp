@@ -2,14 +2,13 @@
 
 int main(int argc, char *argv[]) {
   chdir(dirname(argv[0]));
-  printf("Witaj, synu.\n");
-  rdboard("data/levels/1.txt");
+  init_ui();
+  rdboard("gamedata/levels/1.txt");
   outboard();
-#ifdef __WIN32
-  system("pause");
-#else
-  printf("Press any key to continue . . . ");
-  getchar();
-#endif
+  rdboard("gamedata/art/weapons/dagger.txt");
+  outboard();
+  rdboard("gamedata/art/stickman.txt");
+  outboard();
+  pause();
   return 0;
 }
