@@ -4,8 +4,10 @@ using namespace std;
 
 int main(int argc, char *argv[]) {
   chdir(dirname(argv[0]));
+  chdir("..");
+  chdir("gamedata");
   setlocale(LC_ALL,"");
-  bindtextdomain("dungeon-xrawler",".");
+  bindtextdomain("dungeon-xrawler","translations");
   textdomain("dungeon-xrawler");
   
   init_ui();
@@ -17,17 +19,17 @@ int main(int argc, char *argv[]) {
     }
   }
   else {
-    rdboard("gamedata/levels/1.txt");
+    rdboard("levels/1.txt");
     outboard();
-    rdboard("gamedata/art/weapons/dagger.txt");
+    rdboard("art/weapons/dagger.txt");
     outboard();
-    rdboard("gamedata/art/stickman.txt");
+    rdboard("art/stickman.txt");
     outboard();
-    rdboard("gamedata/art/stickman2.txt");
+    rdboard("art/stickman2.txt");
     outboard();
-    rdboard("gamedata/art/stickgirl.txt");
+    rdboard("art/stickgirl.txt");
     outboard();
-    rdboard("gamedata/art/stickgirl2.txt");
+    rdboard("art/stickgirl2.txt");
     outboard();
   }
   syspause();
