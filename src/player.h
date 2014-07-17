@@ -1,10 +1,8 @@
-#ifndef __PLAYER_H__
-#define __PLAYER_H__
+#ifndef HEADER_DUNGEON_XRAWLER_PLAYER_H
+#define HEADER_DUNGEON_XRAWLER_PLAYER_H
 
 enum sides {
   up=1, down=2, left=4, right=8
 };
-int allowpoz(int x, int y);
-void printhp(int cur, int max); 
 
-#endif // __PLAYER_H__
+#endif // HEADER_DUNGEON_XRAWLER_PLAYER_H

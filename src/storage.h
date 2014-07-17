@@ -1,11 +1,6 @@
-#ifndef __STORAGE_H__
-#define __STORAGE_H__
+#ifndef HEADER_DUNGEON_XRAWLER_STORAGE_H
+#define HEADER_DUNGEON_XRAWLER_STORAGE_H
 
 #define MAXBOARD 200
 
-char getboard(int x, int y);
-void setboard(int x, int y, char val);
-void rdboard(char *filename);
-void outboard();
-
-#endif // __STORAGE_H__
+#endif // HEADER_DUNGEON_XRAWLER_STORAGE_H

@@ -1,9 +1,15 @@
-#include "dungeon-xrawler.h"
+#include "dungeon-xrawler.hpp"
 
 char board[MAXBOARD][MAXBOARD];
 int board_h,board_w;
 
-void rdboard(char *filename) {
+void *xmalloc(size_t size) {
+  void *value=malloc (size);
+  assert(value!=0); // virtual memory exhausted
+  return value;
+}
+
+void rdboard(const char *filename) {
   int i,j;
   char buf[7];
   bool flag;
@@ -15,7 +21,7 @@ void rdboard(char *filename) {
   fgets(buf, 7, fp);
   buf[4]='\0';
   board_w=atoi(buf);
-  char linia[board_w+3];
+  char* linia=(char*)xmalloc(board_w+3);
   for (i=0; i<board_h; i++) {
     fgets(linia, board_w+3, fp);
     flag=false;
@@ -35,6 +41,7 @@ void rdboard(char *filename) {
       if (flag) board[i][j]=' ';
     }
   }
+  free(linia);
 }
 
 char getboard(int x, int y) {

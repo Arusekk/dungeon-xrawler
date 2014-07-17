@@ -1,14 +1,15 @@
 # Polish translations for dungeon-xrawler 0.03 package.
-# Copyright (C) 2014 THE dungeon-xrawler 0.03'S COPYRIGHT HOLDER
+# Copyright (C) 2014 Arusekk
 # This file is distributed under the same license as the dungeon-xrawler 0.03 package.
 #
+# Automatically generated, 2014.
 # Arusekk <arusekk@gmail.com>, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: dungeon-xrawler 0.03 alpha\n"
-"Report-Msgid-Bugs-To: arusekk@gmail.com\n"
-"POT-Creation-Date: 2014-07-16 21:57+0200\n"
-"PO-Revision-Date: 2014-07-16 21:58+0200\n"
+"Report-Msgid-Bugs-To: Arusekk <arusekk@gmail.com>\n"
+"POT-Creation-Date: 2014-07-17 14:51+0200\n"
+"PO-Revision-Date: 2014-07-17 14:52+0200\n"
 "Last-Translator: Arusekk <arusekk@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -18,6 +19,14 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 "X-Generator: Lokalize 1.5\n"
+
+#: main.cpp:13
+#, c-format
+msgid "showing %d ASCII-image\n"
+msgid_plural "showing %d ASCII-images\n"
+msgstr[0] "pokazywanie %d obrazka ASCII\n"
+msgstr[1] "pokazywanie %d obrazków ASCII\n"
+msgstr[2] "pokazywanie %d obrazków ASCII\n"
 
 #: screen.cpp:7
 #, c-format

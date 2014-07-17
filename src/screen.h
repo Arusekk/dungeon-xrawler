@@ -1,8 +1,4 @@
-#ifndef __SCREEN_H__
-#define __SCREEN_H__
+#ifndef HEADER_DUNGEON_XRAWLER_SCREEN_H
+#define HEADER_DUNGEON_XRAWLER_SCREEN_H
 
-void syspause();
-void sysclear();
-void init_ui();
-
-#endif // __SCREEN_H__
+#endif // HEADER_DUNGEON_XRAWLER_SCREEN_H

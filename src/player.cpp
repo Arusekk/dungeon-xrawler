@@ -1,4 +1,4 @@
-#include "dungeon-xrawler.h"
+#include "dungeon-xrawler.hpp"
 
 int player_HP;
 int max_player_HP;

@@ -1,4 +1,4 @@
-#include "dungeon-xrawler.h"
+#include "dungeon-xrawler.hpp"
 
 void syspause() {
 #ifdef __WIN32
