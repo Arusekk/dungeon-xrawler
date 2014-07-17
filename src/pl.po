@@ -1,4 +1,4 @@
-# Polish translations for dungeon-xrawler 0.03 package.
+# Language  translations for dungeon-xrawler 0.03 package.
 # Copyright (C) 2014 Arusekk
 # This file is distributed under the same license as the dungeon-xrawler 0.03 package.
 #
@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dungeon-xrawler 0.03 alpha\n"
 "Report-Msgid-Bugs-To: Arusekk <arusekk@gmail.com>\n"
-"POT-Creation-Date: 2014-07-17 18:45+0200\n"
-"PO-Revision-Date: 2014-07-17 18:45+0200\n"
+"POT-Creation-Date: 2014-07-17 20:14+0200\n"
+"PO-Revision-Date: 2014-07-17 20:14+0200\n"
 "Last-Translator: Arusekk <arusekk@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -20,7 +20,7 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2);\n"
 "X-Generator: Lokalize 1.5\n"
 
-#: main.cpp:15
+#: ../src/main.cpp:15
 #, c-format
 msgid "showing %d ASCII-image\n"
 msgid_plural "showing %d ASCII-images\n"
@@ -28,12 +28,12 @@ msgstr[0] "pokazywanie %d obrazka ASCII\n"
 msgstr[1] "pokazywanie %d obrazków ASCII\n"
 msgstr[2] "pokazywanie %d obrazków ASCII\n"
 
-#: screen.cpp:7
+#: ../src/screen.cpp:7
 #, c-format
 msgid "Press any key to continue . . . "
 msgstr "Aby kontynuować, naciśnij dowolny klawisz . . . "
 
-#: screen.cpp:25
+#: ../src/screen.cpp:25
 #, c-format
 msgid "Welcome, son.\n"
 msgstr "Witaj, synu.\n"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dungeon-xrawler 0.03 alpha\n"
 "Report-Msgid-Bugs-To: Arusekk <arusekk@gmail.com>\n"
-"POT-Creation-Date: 2014-07-17 18:45+0200\n"
+"POT-Creation-Date: 2014-07-17 20:14+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,19 +18,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: main.cpp:15
+#: ../src/main.cpp:15
 #, c-format
 msgid "showing %d ASCII-image\n"
 msgid_plural "showing %d ASCII-images\n"
 msgstr[0] ""
 msgstr[1] ""
 
-#: screen.cpp:7
+#: ../src/screen.cpp:7
 #, c-format
 msgid "Press any key to continue . . . "
 msgstr ""
 
-#: screen.cpp:25
+#: ../src/screen.cpp:25
 #, c-format
 msgid "Welcome, son.\n"
 msgstr ""
