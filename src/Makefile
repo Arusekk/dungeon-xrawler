@@ -63,4 +63,4 @@ messages.pot: VERSION dungeon-xrawler
 	$(Q)lokalize $@ 2>/dev/null
 
 ../gamedata/translations/%/LC_MESSAGES/dungeon-xrawler.mo: %.po
-	$(Q)msgfmt -c $(V) -o $@ $(patsubst %/LC_MESSAGES/dungeon-xrawler.mo,%.po,$@)
+	$(Q)msgfmt -c $(V) -o $@ $(patsubst ../gamedata/translations/%/LC_MESSAGES/dungeon-xrawler.mo,%.po,$@)

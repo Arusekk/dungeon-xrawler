@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dungeon-xrawler 0.03 alpha\n"
 "Report-Msgid-Bugs-To: Arusekk <arusekk@gmail.com>\n"
-"POT-Creation-Date: 2014-07-17 14:51+0200\n"
-"PO-Revision-Date: 2014-07-17 14:52+0200\n"
+"POT-Creation-Date: 2014-07-17 18:45+0200\n"
+"PO-Revision-Date: 2014-07-17 18:45+0200\n"
 "Last-Translator: Arusekk <arusekk@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -20,7 +20,7 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2);\n"
 "X-Generator: Lokalize 1.5\n"
 
-#: main.cpp:13
+#: main.cpp:15
 #, c-format
 msgid "showing %d ASCII-image\n"
 msgid_plural "showing %d ASCII-images\n"
