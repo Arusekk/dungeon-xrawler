@@ -49,7 +49,7 @@ name=HEADER_DUNGEON_XRAWLER_$(call uc,$(subst -,_,$(subst .,_,$(@F))))
 ../VERSION: ../src/Makefile
 	$Qecho $(PKGVERSION) >../VERSION
 
-../src/messages.pot: ../VERSION $(objects:.o=.cpp)
+../src/messages.pot: ../VERSION $(addprefix ../src/,$(objects:.o=.cpp))
 	$Qxgettext -c* -c/ -k_ -o $@ -w99 -F --copyright-holder=Arusekk --package-name=dungeon-xrawler --msgid-bugs-address='$(my_email)' --package-version="`cat ../VERSION`" --force-po $(addprefix ../src/,$(objects:.o=.cpp))
 
 %.po: ../src/messages.pot
