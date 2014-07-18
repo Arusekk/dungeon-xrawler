@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dungeon-xrawler 0.04 alpha\n"
 "Report-Msgid-Bugs-To: Arusekk <arusekk@gmail.com>\n"
-"POT-Creation-Date: 2014-07-17 20:57+0200\n"
+"POT-Creation-Date: 2014-07-18 10:53+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,18 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: ../src/main.cpp:15
+#. / please leave untranslated the words -h and --help, and the paths like `levels/1.txt'
+#: ../src/main.cpp:17
+#, c-format
+msgid ""
+"Usage: `%s [<file> ...]'\n"
+"    or `%s -h|--help'\n"
+"\n"
+"<file> is of format `levels/1.txt' or `art/stickman.txt'"
+msgstr ""
+
+#. / please leave `%d` as it is changed into the number
+#: ../src/main.cpp:23
 #, c-format
 msgid "showing %d ASCII-image\n"
 msgid_plural "showing %d ASCII-images\n"

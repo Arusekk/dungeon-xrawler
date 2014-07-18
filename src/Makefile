@@ -1,7 +1,7 @@
 PKGVERSION=0.04 alpha
 objects=player.o screen.o storage.o main.o
 my_email=Arusekk <arusekk@gmail.com>
-VERBOSE=1
+VERBOSE=0
 
 CXXFLAGS=-O2 -Wall -Wextra -Wshadow -Werror -Wnon-virtual-dtor -Wconversion -Weffc++ -Wcast-qual -Winit-self -pedantic -ansi -lm --std=gnu++0x
 include ../src/lib/gmsl
@@ -14,12 +14,12 @@ Q=@
 V=
 endif
 
-.PHONY: translate clean
-.PRECIOUS: %.po %.cpp
+.PHONY: translate srcclean
+.PRECIOUS: %.po
 
 translate: ../gamedata/translations/$(call substr,$(LANG),1,2)/LC_MESSAGES/dungeon-xrawler.mo
 
-clean:
+srcclean:
 	$(RM) $(objects:.o=.hpp) ../gamedata/translations/*/LC_MESSAGES/dungeon-xrawler.mo
 
 name=HEADER_DUNGEON_XRAWLER_$(call uc,$(subst -,_,$(subst .,_,$(@F))))
@@ -30,9 +30,9 @@ name=HEADER_DUNGEON_XRAWLER_$(call uc,$(subst -,_,$(subst .,_,$(@F))))
 	@echo "#endif // $(name)" >>$@
 
 ../src/lib/__gmsl ../src/lib/gmsl Makefile:
-	@touch $@
+	$Qtouch $@
 
-%.hpp: %.h %.cpp
+%.hpp: %.cpp
 	$Qecho "#ifndef $(name)" >$@
 	@echo "#define $(name)" >>$@
 	@echo >>$@
@@ -42,14 +42,10 @@ name=HEADER_DUNGEON_XRAWLER_$(call uc,$(subst -,_,$(subst .,_,$(@F))))
 	@echo >>$@
 	@echo "#endif // $(name)" >>$@	
 
-%.cpp: ../src/dungeon-xrawler.hpp %.h
-	$Qtest -e $@ || echo -e '#include "dungeon-xrawler.hpp"\n' >$@
-	@touch $@
-
 ../VERSION: ../src/Makefile
 	$Qecho $(PKGVERSION) >../VERSION
 
-../src/messages.pot: ../VERSION $(addprefix ../src/,$(objects:.o=.cpp))
+../src/messages.pot: $(addprefix ../src/,$(objects:.o=.cpp))
 	$Qxgettext -c* -c/ -k_ -o $@ -w99 -F --copyright-holder=Arusekk --package-name=dungeon-xrawler --msgid-bugs-address='$(my_email)' --package-version="`cat ../VERSION`" --force-po $(addprefix ../src/,$(objects:.o=.cpp))
 
 %.po: ../src/messages.pot
