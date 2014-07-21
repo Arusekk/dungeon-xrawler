@@ -5,7 +5,10 @@ int board_h,board_w;
 
 void *xmalloc(size_t size) {
   void *value=malloc (size);
-  assert(value!=0); // virtual memory exhausted
+  if (value==0) {
+    log_fatal << "virtual memory exhausted" << std::endl;
+  }
+  assert(value!=0);
   return value;
 }
 
@@ -56,6 +59,6 @@ void outboard() {
   for (i=0; i<board_h; i++) {
     for (j=0; j<board_w; j++)
       printf("%c", board[i][j]);
-    printf("\n");
+    puts("");
   }
 }

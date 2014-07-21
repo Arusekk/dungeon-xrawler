@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dungeon-xrawler 0.04 alpha\n"
 "Report-Msgid-Bugs-To: Arusekk <arusekk@gmail.com>\n"
-"POT-Creation-Date: 2014-07-18 10:53+0200\n"
+"POT-Creation-Date: 2014-07-21 17:30+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,11 +25,11 @@ msgid ""
 "Usage: `%s [<file> ...]'\n"
 "    or `%s -h|--help'\n"
 "\n"
-"<file> is of format `levels/1.txt' or `art/stickman.txt'"
+"<file> is of format `levels/1.txt' or `art/stickman.txt'\n"
 msgstr ""
 
 #. / please leave `%d` as it is changed into the number
-#: ../src/main.cpp:23
+#: ../src/main.cpp:24
 #, c-format
 msgid "showing %d ASCII-image\n"
 msgid_plural "showing %d ASCII-images\n"

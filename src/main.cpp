@@ -3,7 +3,10 @@
 using namespace std;
 
 int main(int argc, char *argv[]) {
-  chdir(dirname(argv[0]));
+  char *arg0=(char*)xmalloc(strlen(argv[0])+1);
+  strcpy(arg0,argv[0]);
+  chdir(dirname(arg0));
+  free(arg0);
   chdir("..");
   chdir("gamedata");
   setlocale(LC_ALL,"");
@@ -12,12 +15,13 @@ int main(int argc, char *argv[]) {
   
   init_ui();
   if (argc>1) {
-    if (strcmp(argc[1],"-h")==0 || strcmp(argc[1],"--help")==0) {
+    if (strcmp(argv[1],"-h")==0 || strcmp(argv[1],"--help")==0) {
       /// please leave untranslated the words -h and --help, and the paths like `levels/1.txt'
       printf(_("Usage: `%s [<file> ...]'\n"
 	       "    or `%s -h|--help'\n"
 	       "\n"
-	       "<file> is of format `levels/1.txt' or `art/stickman.txt'"), basename(argv[0]), basename(argv[0]));
+	       "<file> is of format `levels/1.txt' or `art/stickman.txt'\n"), argv[0], argv[0]);
+      return 0;
     }
     /// please leave `%d` as it is changed into the number
     printf(ngettext("showing %d ASCII-image\n","showing %d ASCII-images\n",argc-1), argc-1);
