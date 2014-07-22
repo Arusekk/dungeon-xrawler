@@ -1,15 +1,15 @@
-# Language  translations for dungeon-xrawler 0.04 package.
+# Polish translations for dungeon-xrawler 0.05 package.
 # Copyright (C) 2014 Arusekk
-# This file is distributed under the same license as the dungeon-xrawler 0.04 package.
+# This file is distributed under the same license as the dungeon-xrawler 0.05 package.
 #
 # Automatically generated, 2014.
 # Arusekk <arusekk@gmail.com>, 2014.
 msgid ""
 msgstr ""
-"Project-Id-Version: dungeon-xrawler 0.04 alpha\n"
+"Project-Id-Version: dungeon-xrawler 0.05 alpha\n"
 "Report-Msgid-Bugs-To: Arusekk <arusekk@gmail.com>\n"
-"POT-Creation-Date: 2014-07-21 17:30+0200\n"
-"PO-Revision-Date: 2014-07-21 17:30+0200\n"
+"POT-Creation-Date: 2014-07-22 22:21+0200\n"
+"PO-Revision-Date: 2014-07-22 22:21+0200\n"
 "Last-Translator: Arusekk <arusekk@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -21,7 +21,7 @@ msgstr ""
 "X-Generator: Lokalize 1.5\n"
 
 #. / please leave untranslated the words -h and --help, and the paths like `levels/1.txt'
-#: ../src/main.cpp:17
+#: ../../src/main.cpp:23
 #, c-format
 msgid ""
 "Usage: `%s [<file> ...]'\n"
@@ -35,7 +35,7 @@ msgstr ""
 "<plik> jest formatu `levels/1.txt' lub `art/stickman.txt'\n"
 
 #. / please leave `%d` as it is changed into the number
-#: ../src/main.cpp:24
+#: ../../src/main.cpp:31
 #, c-format
 msgid "showing %d ASCII-image\n"
 msgid_plural "showing %d ASCII-images\n"
@@ -43,12 +43,18 @@ msgstr[0] "pokazywanie %d obrazka ASCII\n"
 msgstr[1] "pokazywanie %d obrazków ASCII\n"
 msgstr[2] "pokazywanie %d obrazków ASCII\n"
 
-#: ../src/screen.cpp:7
+#. / HP is an international shortcut for Health Points
+#: ../../src/player.cpp:51
+#, c-format
+msgid "Your HP: "
+msgstr "Twoje HP: "
+
+#: ../../src/screen.cpp:9
 #, c-format
 msgid "Press any key to continue . . . "
 msgstr "Aby kontynuować, naciśnij dowolny klawisz . . . "
 
-#: ../src/screen.cpp:25
+#: ../../src/screen.cpp:31
 #, c-format
 msgid "Welcome, son.\n"
 msgstr "Witaj, synu.\n"

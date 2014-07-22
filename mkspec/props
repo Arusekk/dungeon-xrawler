@@ -1,0 +1,35 @@
+PKGVERSION:=0.05 alpha
+objects:=screen.o storage.o logging.o utils.o mazeobject.o player.o
+# objects=$(patsubst %.cpp,%.o,$(wildcard [!m]*.cpp))
+my_email:=Arusekk <arusekk@gmail.com>
+VERBOSE:=0
+
+CXXFLAGS:=-O2 -Wall -Wextra -Wshadow -Werror -Wnon-virtual-dtor -Wconversion -Weffc++ -Wcast-qual -Winit-self -pedantic -ansi -lm --std=gnu++0x
+
+
+__props_root :=
+ifneq ($(MAKEFILE_LIST),)
+  __props_root := $(word $(words $(MAKEFILE_LIST)),$(MAKEFILE_LIST))
+  # If there are any spaces in the path in __props_root then following may work sadly
+  __props_root := $(patsubst %props,%,$(__props_root))
+endif
+include $(__props_root)../src/lib/gmsl
+include $(__props_root)regex_c
+
+
+
+lang_lang:=$(call substr,$(LANG),1,2)
+lang_coun:=$(call substr,$(LANG),4,5)
+ifeq ($(call uc, $(lang_lang)),$(lang_coun))
+shortlang:=$(lang_lang)
+else
+shortlang:=$(LANG)
+endif
+
+ifeq ($(VERBOSE),1)
+Q:=
+V:=-v
+else
+Q:=@
+V:=
+endif

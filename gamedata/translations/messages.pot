@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: dungeon-xrawler 0.04 alpha\n"
+"Project-Id-Version: dungeon-xrawler 0.05 alpha\n"
 "Report-Msgid-Bugs-To: Arusekk <arusekk@gmail.com>\n"
-"POT-Creation-Date: 2014-07-21 17:30+0200\n"
+"POT-Creation-Date: 2014-07-22 22:21+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
 #. / please leave untranslated the words -h and --help, and the paths like `levels/1.txt'
-#: ../src/main.cpp:17
+#: ../../src/main.cpp:23
 #, c-format
 msgid ""
 "Usage: `%s [<file> ...]'\n"
@@ -29,19 +29,25 @@ msgid ""
 msgstr ""
 
 #. / please leave `%d` as it is changed into the number
-#: ../src/main.cpp:24
+#: ../../src/main.cpp:31
 #, c-format
 msgid "showing %d ASCII-image\n"
 msgid_plural "showing %d ASCII-images\n"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/screen.cpp:7
+#. / HP is an international shortcut for Health Points
+#: ../../src/player.cpp:51
+#, c-format
+msgid "Your HP: "
+msgstr ""
+
+#: ../../src/screen.cpp:9
 #, c-format
 msgid "Press any key to continue . . . "
 msgstr ""
 
-#: ../src/screen.cpp:25
+#: ../../src/screen.cpp:31
 #, c-format
 msgid "Welcome, son.\n"
 msgstr ""

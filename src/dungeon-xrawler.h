@@ -13,6 +13,7 @@
 #include <cassert>
 
 #include <iostream>
+#include <algorithm>
 #include <bits/stdc++.h>
 
 #endif // HEADER_DUNGEON_XRAWLER_DUNGEON_XRAWLER_H

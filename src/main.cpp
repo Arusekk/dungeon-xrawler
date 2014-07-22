@@ -1,9 +1,8 @@
 #include "dungeon-xrawler.hpp"
 
-using namespace std;
-
-int main(int argc, char *argv[]) {
-  char *arg0=(char*)xmalloc(strlen(argv[0])+1);
+int main(int argc, char* argv[]) {
+  char* arg0;
+  xvmalloc(arg0,strlen(argv[0])+1);
   strcpy(arg0,argv[0]);
   chdir(dirname(arg0));
   free(arg0);
@@ -13,9 +12,13 @@ int main(int argc, char *argv[]) {
   bindtextdomain("dungeon-xrawler","translations");
   textdomain("dungeon-xrawler");
   
-  init_ui();
   if (argc>1) {
-    if (strcmp(argv[1],"-h")==0 || strcmp(argv[1],"--help")==0) {
+    std::vector<std::string> args;
+    for (int i=0; i<argc; i++) {
+      args.push_back(argv[i]);
+    }
+    log_variable(args);
+    if (args[1]=="-h" || args[1]=="--help") {
       /// please leave untranslated the words -h and --help, and the paths like `levels/1.txt'
       printf(_("Usage: `%s [<file> ...]'\n"
 	       "    or `%s -h|--help'\n"
@@ -23,6 +26,7 @@ int main(int argc, char *argv[]) {
 	       "<file> is of format `levels/1.txt' or `art/stickman.txt'\n"), argv[0], argv[0]);
       return 0;
     }
+    init_ui();
     /// please leave `%d` as it is changed into the number
     printf(ngettext("showing %d ASCII-image\n","showing %d ASCII-images\n",argc-1), argc-1);
     for (int i=1; i<argc; i++) {
@@ -31,6 +35,9 @@ int main(int argc, char *argv[]) {
     }
   }
   else {
+    Player->set_HP(69);
+    Player->set_max_HP(123);
+    init_ui();
     rdboard("levels/1.txt");
     outboard();
     rdboard("art/weapons/dagger.txt");
@@ -47,3 +54,5 @@ int main(int argc, char *argv[]) {
   syspause();
   return 0;
 }
+
+/* EOF */

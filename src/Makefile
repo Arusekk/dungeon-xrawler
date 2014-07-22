@@ -1,51 +1,37 @@
-include ../src/mkspec/props
+include ../mkspec/props
 
-.PHONY: translate srcclean
+.PHONY: all clean
 .PRECIOUS: %.po
 
-translate: ../gamedata/translations/$(call substr,$(LANG),1,2)/LC_MESSAGES/dungeon-xrawler.mo
+all: $(objects:.o=.hpp) dungeon-xrawler.hpp
 
-srcclean:
-	$(RM) ../gamedata/translations/*/LC_MESSAGES/dungeon-xrawler.mo
+clean:
+	${RM} $(objects:.o=.hpp) dungeon-xrawler.hpp
 
-name=HEADER_DUNGEON_XRAWLER_$(call uc,$(subst -,_,$(subst /,_,$(subst .,_,$(@F)))))
+name=HEADER_DUNGEON_XRAWLER_$(call uc,$(subst -,_,$(subst /,_,$(subst .,_,$@))))
 %.h:
 	@test ! -e $@
-	$Qecho "#ifndef $(name)" >$@
-	@echo "#define $(name)" >>$@
+	$Qecho "#ifndef ${name}" >$@
+	@echo "#define ${name}" >>$@
 	@echo >>$@
-	@echo "#endif // $(name)" >>$@
+	@echo "#endif // ${name}" >>$@
 
-../src/dungeon-xrawler.hpp: ../src/dungeon-xrawler.h
-	$Qecho "#ifndef $(name)" >$@
-	@echo "#define $(name)" >>$@
+dungeon-xrawler.hpp: dungeon-xrawler.h
+	$Qecho "#ifndef ${name}" >$@
+	@echo "#define ${name}" >>$@
 	@echo >>$@
-	@echo '#include "$(patsubst %pp,%,$(@F))"' >>$@
+	@echo '#include "$(@F:pp=)"' >>$@
 	@echo >>$@
 	@for i in $(objects:.o=.hpp); do echo "#include \"$$i\"" >>$@; done
 	@echo >>$@
-	@echo "#endif // $(name)" >>$@	
+	@echo "#endif // ${name}" >>$@	
 
-%.hpp: %.cpp %.h
-	$Qecho "#ifndef $(name)" >$@
-	@echo "#define $(name)" >>$@
+%.hpp: %.cpp %.h ../mkspec/regex_c
+	$Qecho "#ifndef ${name}" >$@
+	@echo "#define ${name}" >>$@
 	@echo >>$@
-	@echo '#include "$(patsubst %pp,%,$(@F))"' >>$@
+	@echo '#include "$(@F:pp=)"' >>$@
 	@echo >>$@
-	@cat $(patsubst %.hpp,%.cpp,$@) |grep -E "$(regex_c_func)" |sed -e "s/ {/;/g" >>$@
+	@cat $(@:.hpp=.cpp) |grep -E "${regex_c_func}" |sed -e 's/{//g' |sed -e 's/${regex_c_spc}*$$/;/g' >>$@
 	@echo >>$@
-	@echo "#endif // $(name)" >>$@
-
-../VERSION: ../src/mkspec/props
-	$Qecho $(PKGVERSION) >../VERSION
-
-../gamedata/translations/messages.pot: $(addprefix ../src/,$(objects:.o=.cpp) main.cpp) ../VERSION
-	$Qxgettext -c* -c/ -k_ -o $@ -w99 -F --copyright-holder=Arusekk --package-name=dungeon-xrawler --msgid-bugs-address='$(my_email)' --package-version="`cat ../VERSION`" --force-po $(addprefix ../src/,$(objects:.o=.cpp) main.cpp)
-
-%.po: ../gamedata/translations/messages.pot
-	$Qtest -e $@ && $(RM) $@ || true
-	$Qmsginit --no-translator -l $(@:.po=) -i $< -o $@
-	$Qlokalize $@ 2>/dev/null
-
-../gamedata/translations/%/LC_MESSAGES/dungeon-xrawler.mo: ../gamedata/translations/%.po
-	$Qmsgfmt -c $V -o $@ $<
+	@echo "#endif // ${name}" >>$@

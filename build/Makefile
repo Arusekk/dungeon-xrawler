@@ -1,4 +1,4 @@
-include ../src/mkspec/props
+include ../mkspec/props
 
 .PHONY: all clean
 
@@ -11,7 +11,6 @@ dungeon-xrawler: $(objects) main.o
 	$Q$(CXX) $(CXXFLAGS) -o dungeon-xrawler $(objects) main.o
 
 $(objects) main.o: $(addprefix ../src/,dungeon-xrawler.hpp $(objects:.o=.hpp))
-	@echo make $@
 	$Qmkdir -p $(@D)
 	$Q$(CXX) $(CXXFLAGS) -c ../src/$(@:.o=.cpp) -o $@
 
