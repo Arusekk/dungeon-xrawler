@@ -6,7 +6,6 @@ int main(int argc, char* argv[]) {
   strcpy(arg0,argv[0]);
   chdir(dirname(arg0));
   free(arg0);
-  chdir("..");
   chdir("gamedata");
   setlocale(LC_ALL,"");
   bindtextdomain("dungeon-xrawler","translations");

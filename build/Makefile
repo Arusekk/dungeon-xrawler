@@ -1,20 +1,17 @@
 include ../mkspec/props
+place?=$(shell realpath ..)
 
 .PHONY: all clean
 
-all: dungeon-xrawler
+all: ${objects} main.o
+	$Qtrue $@
 
 clean:
-	$(RM) *.o dungeon-xrawler
+	${RM} *.o
 
-dungeon-xrawler: $(objects) main.o
-	$Q$(CXX) $(CXXFLAGS) -o dungeon-xrawler $(objects) main.o
+${objects} main.o: %.o: $(addprefix ${place}/src/,dungeon-xrawler.hpp %.cpp)
+	@echo Building $@...
+	$Qmkdir -p ${@D}
+	$Q${CXX} ${CXXFLAGS} -c ${place}/src/$(@:.o=.cpp) -o $@
 
-$(objects) main.o: $(addprefix ../src/,dungeon-xrawler.hpp $(objects:.o=.hpp))
-	$Qmkdir -p $(@D)
-	$Q$(CXX) $(CXXFLAGS) -c ../src/$(@:.o=.cpp) -o $@
-
-main.o: ../src/main.cpp
-player.o: ../src/player.cpp
-screen.o: ../src/screen.cpp
-storage.o: ../src/storage.cpp
+${objects}: %.o: ${place}/src/%.hpp

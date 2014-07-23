@@ -54,15 +54,39 @@ std::ostream& log_fatal_f(const char* file, int line) {
   return log_generic_f("[FATAL]", file, line);
 }
 
-/** Helper function to output vectors of stings
- * @param out output stream
- * @param vec vector
- * @returns out with vector put out
+/** Puts file/line fatal info into the logging instance and returns it
+ * @param file file where the event happened
+ * @param line line where the event happened
+ * @returns logging instance with prefix already written
  */
-std::ostream& operator<<(std::ostream& out, std::vector<std::string> vec) {
-    foreach(vec,i)
-      out << *i << " ";
-    return out;
+template <class T>
+std::string log_fmt(std::vector<T> vec) {
+  uint i;
+  std::stringstream out;
+  out << '[';
+//   foreach(vec,i) // not working with templates
+  for (i=0; i<vec.size()-1; i++)
+    out << log_fmt(vec[i]) << ", ";
+  if (vec.size()>0)
+    out << log_fmt(vec[i]);
+  out << ']';
+  return out.str();
 }
+
+std::string log_fmt(std::string str) {
+  std::stringstream out;
+  out << '"' << str << '"';
+  return out.str();
+}
+
+template <class T>
+std::string log_fmt(T ipt) {
+  std::stringstream out;
+  out << ipt;
+  return out.str();
+}
+
+void bekon(){
+std::vector<std::string>a;log_fmt(a);}
 
 /* EOF */

@@ -7,26 +7,44 @@ VERBOSE:=0
 CXXFLAGS:=-O2 -Wall -Wextra -Wshadow -Werror -Wnon-virtual-dtor -Wconversion -Weffc++ -Wcast-qual -Winit-self -pedantic -ansi -lm --std=gnu++0x
 
 
+define semicolon_sign
+;
+endef
+semicolon_sign:=$(subst  ,,${semicolon_sign})
+define hash_sign
+#
+endef
+hash_sign:=$(subst  ,,${hash_sign})
+define comma_sign
+,
+endef
+comma_sign:=$(subst  ,,${comma_sign})
+
+
 __props_root :=
-ifneq ($(MAKEFILE_LIST),)
-  __props_root := $(word $(words $(MAKEFILE_LIST)),$(MAKEFILE_LIST))
+ifneq (${MAKEFILE_LIST},)
+  __props_root := $(word $(words ${MAKEFILE_LIST}),${MAKEFILE_LIST})
   # If there are any spaces in the path in __props_root then following may work sadly
-  __props_root := $(patsubst %props,%,$(__props_root))
+  __props_root := $(patsubst %props,%,${__props_root})
 endif
-include $(__props_root)../src/lib/gmsl
-include $(__props_root)regex_c
+include ${__props_root}../src/lib/gmsl
+include ${__props_root}regex_c
+include ${__props_root}templates
 
+lang_lang:=$(call substr,${LANG},1,2)
+lang_coun:=$(call substr,${LANG},4,5)
+lang_lang_ok:=$(call seq,$(call uc, ${lang_lang}),${lang_coun})
+langstart:=$(if $(call seq,$(call substr,${LANG},6,11),.UTF-8),12,6)
+shortlang:=$(if ${lang_lang_ok},${lang_lang}$(call substr,${LANG},${langstart},64),${LANG})
 
+congrat_if_all1:=echo 'Well done! You have just built Dungeon Xrawler! You can use it as specified in the INSTALL file. You can now create a mobile minimum package${comma_sign} or just delete unnecessary files and folders. What do you want to do now?'
+congrat_if_all2:=echo -e ' - create [p]ackage\n - [d]elete unnecessary things\n - do [n]othing - I just want to enjoy the game (default)'
+congrat_if_all3:=read x
+congrat_if_all4:=test p == "$$x" && ${MAKE} pkg.tgz || test d == "$$x" && ${MAKE} vacuum || test p != "$$x" -and d != "$$x"
+congrat_if_all:=${congrat_if_all1}${semicolon_sign}${congrat_if_all2}${semicolon_sign}${congrat_if_all3}${semicolon_sign}${congrat_if_all4}
+congrat=$(if $(call seq,$@,all),${congrat_if_all},true)
 
-lang_lang:=$(call substr,$(LANG),1,2)
-lang_coun:=$(call substr,$(LANG),4,5)
-ifeq ($(call uc, $(lang_lang)),$(lang_coun))
-shortlang:=$(lang_lang)
-else
-shortlang:=$(LANG)
-endif
-
-ifeq ($(VERBOSE),1)
+ifeq (${VERBOSE},1)
 Q:=
 V:=-v
 else

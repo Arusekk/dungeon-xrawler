@@ -1,0 +1,20 @@
+#!/bin/bash
+
+gettext_ver=`gettext --version 2>/dev/null|head -n 1`
+if [ -z "$gettext_ver" ]; then
+  echo "[INFOR] No \`gettext' found (you have to know English since now). Skipping..."
+fi
+
+cxx_ver=`g++ --version 2>/dev/null|head -n 1`
+test -z "$cxx_ver" && cxx_ver=`gcc --version 2>/dev/null|head -n 1`
+test -z "$cxx_ver" && cxx_ver=`cc --version 2>/dev/null|head -n 1`
+if [ -z "$cxx_ver" ]; then
+  echo "[FATAL] No cxx found. Tried: \`g++', \`gcc', \`cc'. Giving up."
+  exit
+fi
+
+make_ver=`make --version 2>/dev/null|head -n 1`
+if [ -z "$make_ver" ]; then
+  echo "[FATAL] No \`make' found. Giving up."
+  exit
+fi

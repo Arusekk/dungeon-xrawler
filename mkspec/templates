@@ -1,0 +1,31 @@
+magic_str:=hgsddfjdndhfnx23e6uy46435rtfsdt3qatrdh7
+
+include_decl:=${hash_sign}include "%.hpp"${magic_str}
+
+ismainhpp=$(call seq,dungeon-xrawler.hpp,$@)
+mainhppfuncs=$(patsubst %.o,${include_decl},${objects})
+shellcmd1=cat $(@:.hpp=.cpp)
+shellcmd2:=|grep -E "${regex_c_func}"
+shellcmd3:=|sed -e 's/${regex_c_spc}*{${regex_c_spc}*//g'
+shellcmd4:=|sed -e 's/)$$/)${semicolon_sign}${magic_str}/g'
+shellcmd=${shellcmd1}${shellcmd2}${shellcmd3}${shellcmd4}
+othrhppfuncs=$(shell ${shellcmd})
+funcs=$(if ${ismainhpp},${mainhppfuncs},${othrhppfuncs})
+
+
+fname=HEADER_DUNGEON_XRAWLER_$(call uc,$(subst -,_,$(subst /,_,$(subst .,_,$@))))
+
+
+t1:=place
+t2:=funcs
+t3:=fname
+
+
+template2=$(subst {{${t3}}},${${t3}},${templatex})
+template1=$(subst {{${t2}}},${${t2}},${template2})
+template0=$(subst \n ,\n,$(subst ${magic_str},\n,$(subst {{${t1}}},${${t1}},${template1})))
+
+ishpp=$(call seq,hpp,$(call last,$(call split,.,$1)))
+template=$(if ${ishpp},$(call template,_.hpp-beg)${template0}$(call template,_.hpp-end),${template0})
+
+templatex=$(shell cat ${__props_root}../src/templates/$1 |sed -e 's/$$/${magic_str}/g')
