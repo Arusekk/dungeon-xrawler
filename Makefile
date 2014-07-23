@@ -31,7 +31,7 @@ dungeon-xrawler.desktop: src/templates/dungeon-xrawler.desktop
 	$Qtest -f $${XDG_CONFIG_HOME:-~/.config}/user-dirs.dirs && . $${XDG_CONFIG_HOME:-~/.config}/user-dirs.dirs && export XDG_DESKTOP_DIR XDG_DOWNLOAD_DIR XDG_TEMPLATES_DIR XDG_PUBLICSHARE_DIR XDG_DOCUMENTS_DIR XDG_MUSIC_DIR XDG_PICTURES_DIR XDG_VIDEOS_DIR && cp $@ $$XDG_DESKTOP_DIR
 
 pkg.tgz: dungeon-xrawler dungeon-xrawler.desktop
-	$Qtar -czf pkg.tgz gamedata dungeon-xrawler dungeon-xrawler.desktop
+	$Qtar -czf pkg.tgz gamedata/translations/*.po gamedata/translations/*/ gamedata/art gamedata/levels dungeon-xrawler dungeon-xrawler.desktop
 
 vacuum:
 	${RM} -r src build configure Makefile INSTALL VERSION

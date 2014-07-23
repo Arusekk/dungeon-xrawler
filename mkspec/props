@@ -40,7 +40,7 @@ shortlang:=$(if ${lang_lang_ok},${lang_lang}$(call substr,${LANG},${langstart},6
 congrat_if_all1:=echo 'Well done! You have just built Dungeon Xrawler! You can use it as specified in the INSTALL file. You can now create a mobile minimum package${comma_sign} or just delete unnecessary files and folders. What do you want to do now?'
 congrat_if_all2:=echo -e ' - create [p]ackage\n - [d]elete unnecessary things\n - do [n]othing - I just want to enjoy the game (default)'
 congrat_if_all3:=read x
-congrat_if_all4:=test p == "$$x" && ${MAKE} pkg.tgz || test d == "$$x" && ${MAKE} vacuum || test p != "$$x" -and d != "$$x"
+congrat_if_all4:=(test p == "$$x" && ${MAKE} pkg.tgz) || (test d == "$$x" && ${MAKE} vacuum) || test p != "$$x" -a d != "$$x"
 congrat_if_all:=${congrat_if_all1}${semicolon_sign}${congrat_if_all2}${semicolon_sign}${congrat_if_all3}${semicolon_sign}${congrat_if_all4}
 congrat=$(if $(call seq,$@,all),${congrat_if_all},true)
 
