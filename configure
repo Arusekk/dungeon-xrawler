@@ -82,5 +82,5 @@ echo -en "${quest} Do you wish to run the game now (Y/n)? "
 read x
 test n == "$x" && exit 0
 echo -e "${infor} Running the game..."
-$place/dungeon-xrawler.desktop
+$place/dungeon-xrawler.desktop || $place/dungeon-xrawler
 echo -e "${succe} Game finished."
