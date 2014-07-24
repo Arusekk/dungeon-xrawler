@@ -46,7 +46,7 @@ if [ -z "$cxx_ver" ]; then cxx=cc  cxx_ver=`cc  --version 2>/dev/null|head -n 1`
 if [ -z "$cxx_ver" ]; then cxx=c99 cxx_ver=`c99 --version 2>/dev/null|head -n 1`; fi
 if [ -z "$cxx_ver" ]; then cxx=c89 cxx_ver=`c89 --version 2>/dev/null|head -n 1`; fi
 if [ -z "$cxx_ver" ]; then
-  echo -e "${fatal} No cxx found. Tried: \`g++', \`gcc', \`cc'. Giving up."
+  echo -e "${fatal} No cxx found. Tried: \`g++', \`c++', \`cpp', \`gcc', \`cc', \`c99', \`c89'. Giving up."
   youcaninstal gcc-c++
   exit 1
 else
@@ -76,7 +76,7 @@ echo -en "${quest} Do you wish to make the game now (Y/n)? "
 read x
 test n == "$x" && exit 0
 echo -e "${infor} Running make..."
-make || (echo -e "${fatal} Make failed." && exit 1)
+make || (echo -e "${fatal} Make failed."; exit 1) || exit 1
 echo -e "${succe} Make done."
 echo -en "${quest} Do you wish to run the game now (Y/n)? "
 read x

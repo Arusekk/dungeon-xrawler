@@ -1,8 +1,10 @@
 #include "dungeon-xrawler.hpp"
 
+Interface* UI=new Interface;
+
 /** Pauses the user interface
  */
-void syspause() {
+void Interface::pause_me() {
 #ifdef __WIN32
   system("pause");
 #else
@@ -13,7 +15,7 @@ void syspause() {
 
 /** Clears the screen
  */
-void sysclear() {
+void Interface::clear_me() {
 #ifdef __WIN32
   system("cls");
 #else
@@ -23,11 +25,11 @@ void sysclear() {
 
 /** Initializes user interface
  */
-void init_ui() {
+void Interface::init_me() {
 #ifdef __WIN32
   system("title Dungeon Xrawler");
 #endif
-  sysclear();
+  clear_me();
   printf(_("Welcome, son.\n"));
   printhp_pl();
 }

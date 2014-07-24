@@ -1,10 +1,13 @@
 @echo off
 title Rough draft of build on Windows
-echo This doesn't work
+echo In my opinion it doesn't work, but feel free to try.
 pause
 
 cd src
-type *.cpp >TEMPF125
+type *.cpp >../TEMPF125
+cd ..
 rename TEMPF125 TEMPF125.cpp
 start TEMPF125.cpp
+ping -n 2 127.1.2.3 >nul
+del nul
 del TEMPF125.cpp
