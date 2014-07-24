@@ -1,74 +1,86 @@
 #!/bin/bash
 
 isrelease() {
-  ls -1d /etc/*release /etc/*version 2>/dev/null|grep -q $1
+  ls -1d /etc/*release /etc/*version 2>/dev/null|grep -qi $1
   return $?
 }
 
 youcaninstal() {
-  echo -n "[INFOR] You can install latest version of $1 using command "
+  echo -en "${infor} You can install latest version of $1 using command "
   isrelease mandrake || isrelease mandriva || isrelease mageia && echo "\`urpmi $1' as root" ||
-  isrelease fedora || isrelease redhat && echo "\`yum install $1' as root" ||
-  isrelease debian || isrelease lsb && echo "\`sudo apt-get install $1'" ||
+  (isrelease fedora || isrelease redhat && echo "\`yum install $1' as root") ||
+  (isrelease debian || isrelease lsb && echo "\`sudo apt-get install $1'") ||
   echo "of instalation on your `uname -s` box"
 }
 
 place=`dirname $0`
+mreset1='\e[0;1m'
+mreset2='\e[0m'
+mred='\e[0;31;1m'
+mgrin='\e[0;32;1m'
+myello='\e[0;33;1m'
+mblu='\e[0;34;1m'
+mprpl='\e[0;35;1m'
+infor="${mreset1}[${myello}INFOR${mreset1}]${mreset2}"
+succe="${mreset1}[${mgrin}SUCCE${mreset1}]${mreset2}"
+quest="${mreset1}[${mprpl}QUEST${mreset1}]${mreset2}"
+fatal="${mreset1}[${mred}FATAL${mreset1}]${mreset2}"
 
-echo "[INFOR] Looking for gettext *.po -> *.mo translator ..."
+echo -e "${infor} Looking for gettext *.po -> *.mo translator ..."
 
 gettext_ver=`msgfmt --version 2>/dev/null|head -n 1`
 if [ -z "$gettext_ver" ]; then
-  echo "[INFOR] No \`msgfmt' found (you have to know English since now). Skipping..."
+  echo -e "${infor} No \`msgfmt' found (you have to know English since now). Skipping..."
 else
-  echo "[INFOR] Found \`msgfmt'. It's ok"
+  echo -e "${succe} Found \`msgfmt'. It's ok."
 fi
 
-echo "[INFOR] Looking for cxx (c++ compiler) ..."
+echo -e "${infor} Looking for cxx (c++ compiler) ..."
 
-test -z "$cxx_ver" && (cxx=g++ cxx_ver=`$cxx --version 2>/dev/null|head -n 1`)
-test -z "$cxx_ver" && (cxx=c++ cxx_ver=`$cxx --version 2>/dev/null|head -n 1`)
-test -z "$cxx_ver" && (cxx=cpp cxx_ver=`$cxx --version 2>/dev/null|head -n 1`)
-test -z "$cxx_ver" && (cxx=gcc cxx_ver=`$cxx --version 2>/dev/null|head -n 1`)
-test -z "$cxx_ver" && (cxx=cc  cxx_ver=`$cxx --version 2>/dev/null|head -n 1`)
-test -z "$cxx_ver" && (cxx=c99 cxx_ver=`$cxx --version 2>/dev/null|head -n 1`)
-test -z "$cxx_ver" && (cxx=c89 cxx_ver=`$cxx --version 2>/dev/null|head -n 1`)
+cxx_ver=""
+if [ -z "$cxx_ver" ]; then cxx=g++ cxx_ver=`g++ --version 2>/dev/null|head -n 1`; fi
+if [ -z "$cxx_ver" ]; then cxx=c++ cxx_ver=`c++ --version 2>/dev/null|head -n 1`; fi
+if [ -z "$cxx_ver" ]; then cxx=cpp cxx_ver=`cpp --version 2>/dev/null|head -n 1`; fi
+if [ -z "$cxx_ver" ]; then cxx=gcc cxx_ver=`gcc --version 2>/dev/null|head -n 1`; fi
+if [ -z "$cxx_ver" ]; then cxx=cc  cxx_ver=`cc  --version 2>/dev/null|head -n 1`; fi
+if [ -z "$cxx_ver" ]; then cxx=c99 cxx_ver=`c99 --version 2>/dev/null|head -n 1`; fi
+if [ -z "$cxx_ver" ]; then cxx=c89 cxx_ver=`c89 --version 2>/dev/null|head -n 1`; fi
 if [ -z "$cxx_ver" ]; then
-  echo "[FATAL] No cxx found. Tried: \`g++', \`gcc', \`cc'. Giving up."
+  echo -e "${fatal} No cxx found. Tried: \`g++', \`gcc', \`cc'. Giving up."
   youcaninstal gcc-c++
   exit 1
 else
-  echo "[INFOR] Found cxx: $cxx_ver"
-  echo "#include<bits/stdc++.h>\nusing namespace std;int main(){return 0;}" >$place/configurative.cpp
+  echo -e "${succe} Found cxx: $cxx_ver"
+  echo -e "#include<bits/stdc++.h>\nusing namespace std;int main(){return 0;}" >$place/configurative.cpp
   if $cxx --std=gnu++0x $place/configurative.cpp -o $place/configurative && rm $place/configurative.cpp $place/configurative; then
-    echo "[INFOR] It's ok"
+    echo -e "${succe} It's ok."
   else
-    echo "[FATAL] It's not compatible with C++11 [--std=gnu++0x]. Giving up."
+    echo -e "${fatal} It's not compatible with C++11 [--std=gnu++0x]. Giving up."
     youcaninstal gcc-c++
     exit 1
   fi
 fi
 
-echo "[INFOR] Looking for \`make' ..."
+echo -e "${infor} Looking for \`make' ..."
 make_ver=`make --version 2>/dev/null|head -n 1`
 if [ -z "$make_ver" ]; then
-  echo "[FATAL] No \`make' found. Giving up."
+  echo -e "${fatal} No \`make' found. Giving up."
   youcaninstal make
   exit 1
 else
-  echo "[INFOR] Found make: $make_ver"
+  echo -e "${succe} Found make: $make_ver"
 fi
 
-echo "[INFOR] Congratulations. You have all the requirements."
-echo -n "[QUEST] Do you wish to make the game now (Y/n)? "
+echo -e "${succe} Congratulations. You have all the requirements."
+echo -en "${quest} Do you wish to make the game now (Y/n)? "
 read x
-test n == $x && exit 0
-echo "[INFOR] Running make..."
-make || (echo "[FATAL] Make failed." && exit 1)
-echo "[INFOR] Make done."
-echo -n "[QUEST] Do you wish to run the game now (Y/n)? "
+test n == "$x" && exit 0
+echo -e "${infor} Running make..."
+make || (echo -e "${fatal} Make failed." && exit 1)
+echo -e "${succe} Make done."
+echo -en "${quest} Do you wish to run the game now (Y/n)? "
 read x
-test n == $x && exit 0
-echo "[INFOR] Running the game..."
-$place/dungeon-xrawler
-echo "[INFOR] Game finished."
+test n == "$x" && exit 0
+echo -e "${infor} Running the game..."
+$place/dungeon-xrawler.desktop
+echo -e "${succe} Game finished."

@@ -37,8 +37,20 @@ lang_lang_ok:=$(call seq,$(call uc, ${lang_lang}),${lang_coun})
 langstart:=$(if $(call seq,$(call substr,${LANG},6,11),.UTF-8),12,6)
 shortlang:=$(if ${lang_lang_ok},${lang_lang}$(call substr,${LANG},${langstart},64),${LANG})
 
-congrat_if_all1:=echo 'Well done! You have just built Dungeon Xrawler! You can use it as specified in the INSTALL file. You can now create a mobile minimum package${comma_sign} or just delete unnecessary files and folders. What do you want to do now?'
-congrat_if_all2:=echo -e ' - create [p]ackage\n - [d]elete unnecessary things\n - do [n]othing - I just want to enjoy the game (default)'
+mreset1:=\e[0${semicolon_sign}1m
+mreset2:=\e[0m
+mred:=\e[0${semicolon_sign}31${semicolon_sign}1m
+mgrin:=\e[0${semicolon_sign}32${semicolon_sign}1m
+myello=\e[0${semicolon_sign}33${semicolon_sign}1m
+mblu=\e[0${semicolon_sign}34${semicolon_sign}1m
+mprpl=\e[0${semicolon_sign}35${semicolon_sign}1m
+infor:=${mreset1}[${myello}INFOR${mreset1}]${mreset2}
+succe:=${mreset1}[${mgrin}SUCCE${mreset1}]${mreset2}
+quest:=${mreset1}[${mprpl}QUEST${mreset1}]${mreset2}
+fatal:=${mreset1}[${mred}FATAL${mreset1}]${mreset2}
+
+congrat_if_all1:=echo -e '${succe} Well done! You have just built Dungeon Xrawler! You can use it as specified in the INSTALL file.\n${infor} You can now create a mobile minimum package${comma_sign} or just delete unnecessary files and folders.\n${quest} What do you want to do now?'
+congrat_if_all2:=echo -e '${quest}  - create [p]ackage\n${quest}  - [d]elete unnecessary things\n${quest}  - do [n]othing - I just want to enjoy the game (default)'
 congrat_if_all3:=read x
 congrat_if_all4:=(test p == "$$x" && ${MAKE} pkg.tgz) || (test d == "$$x" && ${MAKE} vacuum) || test p != "$$x" -a d != "$$x"
 congrat_if_all:=${congrat_if_all1}${semicolon_sign}${congrat_if_all2}${semicolon_sign}${congrat_if_all3}${semicolon_sign}${congrat_if_all4}
