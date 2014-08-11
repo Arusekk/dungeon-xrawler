@@ -25,7 +25,7 @@ template2=$(subst {{${t3}}},${${t3}},${templatex})
 template1=$(subst {{${t2}}},${${t2}},${template2})
 template0=$(subst \n ,\n,$(subst ${magic_str},\n,$(subst {{${t1}}},${${t1}},${template1})))
 
-ishpp=$(call seq,hpp,$(call last,$(call split,.,$@)))
+ishpp=$(call seq,hpp,$(call last,$(call split,.,$1)))
 template=$(if ${ishpp},$(call template,_.hpp-beg)${template0}$(call template,_.hpp-end),${template0})
 
 templatex=$(shell cat ${__props_root}../src/templates/$1 |sed -e 's/$$/${magic_str}/g')

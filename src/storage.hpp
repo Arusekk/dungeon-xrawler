@@ -13,7 +13,7 @@ public:
   void set(int x, int y, char val);
   void out();
   void rd(const char* filename);
-}
+};
 
 
 #endif // HEADER_DUNGEON_XRAWLER_STORAGE_HPP

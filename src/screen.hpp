@@ -6,7 +6,7 @@ public:
   void clear_me();
   void pause_me();
   void init_me();
-}
+};
 
 
 #endif // HEADER_DUNGEON_XRAWLER_SCREEN_HPP
