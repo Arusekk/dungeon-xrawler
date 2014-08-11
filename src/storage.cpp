@@ -1,8 +1,5 @@
 #include "dungeon-xrawler.hpp"
 
-char board[MAXBOARD][MAXBOARD];
-int board_h,board_w;
-
 /** Allocates the memory and in case of no memory throws a fatal
  * @param size size of allocated bytes - best if is like count*sizeof(val)
  * @param file file where the allocation takes place
@@ -21,7 +18,7 @@ void* xmalloc_f(size_t size, const char* file, int line) {
 /** Reads the board from given file name
  * @param filename path to file to read the board from (relative to gamedata/)
  */
-void rdboard(const char* filename) {
+void Board::rd(const char* filename) {
   int i,j;
   char buf[7];
   char* linia;
@@ -30,28 +27,28 @@ void rdboard(const char* filename) {
   fp=fopen(filename,"r");
   fgets(buf, 7, fp);
   buf[4]='\0';
-  board_h=atoi(buf);
+  h=atoi(buf);
   fgets(buf, 7, fp);
   buf[4]='\0';
-  board_w=atoi(buf);
-  xvmalloc(linia,board_w+3);
-  for (i=0; i<board_h; i++) {
-    fgets(linia, board_w+3, fp);
+  w=atoi(buf);
+  xvmalloc(linia,w+3);
+  for (i=0; i<h; i++) {
+    fgets(linia, w+3, fp);
     flag=false;
-    for (j=0; j<board_w; j++) {
+    for (j=0; j<w; j++) {
       switch(linia[j]) {
 	case '\0':
 	  flag=true;
 	case '.':
 	case '\r':
 	case '\n':
-	  board[i][j]=' ';
+	  inboard[i][j]=' ';
 	  break;
 	default:
-	  board[i][j]=linia[j];
+	  inboard[i][j]=linia[j];
 	  break;
       }
-      if (flag) board[i][j]=' ';
+      if (flag) inboard[i][j]=' ';
     }
   }
   free(linia);
@@ -62,8 +59,9 @@ void rdboard(const char* filename) {
  * @param y y-pos of the cell
  * @returns content of the cell
  */
-char getboard(int x, int y) {
-  return board[y][x];
+char Board::get(int x, int y) {
+  if (y>=h || y<0 || x>=w || x<0) return '#';
+  return inboard[y][x];
 }
 
 /** Changes one cell of the board
@@ -71,17 +69,17 @@ char getboard(int x, int y) {
  * @param y y-pos of the cell
  * @param val new content of the cell
  */
-void setboard(int x, int y, char val) {
-  board[y][x]=val;
+void Board::set(int x, int y, char val) {
+  inboard[y][x]=val;
 }
 
 /** Outputs the whole board to the ui
  */
-void outboard() {
+void Board::out() {
   int i,j;
-  for (i=0; i<board_h; i++) {
-    for (j=0; j<board_w; j++)
-      printf("%c", board[i][j]);
+  for (i=0; i<h; i++) {
+    for (j=0; j<w; j++)
+      printf("%c", inboard[i][j]);
     puts("");
   }
 }

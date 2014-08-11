@@ -2,7 +2,7 @@ PKGVERSION:=0.05 alpha
 objects:=screen.o storage.o logging.o utils.o mazeobject.o player.o
 # objects=$(patsubst %.cpp,%.o,$(wildcard [!m]*.cpp))
 my_email:=Arusekk <arusekk@gmail.com>
-VERBOSE:=0
+VERBOSE?=0
 
 CXXFLAGS:=-O2 -Wall -Wextra -Wshadow -Werror -Wnon-virtual-dtor -Wconversion -Weffc++ -Wcast-qual -Winit-self -pedantic -ansi -lm --std=gnu++0x
 

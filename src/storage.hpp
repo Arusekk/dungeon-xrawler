@@ -5,10 +5,15 @@
 #define xmalloc(s) xmalloc_f(s,__FILE__,__LINE__)
 #define xvmalloc(v,s) v=(decltype(v))xmalloc(s)
 
-void* xmalloc_f(size_t size, const char* file, int line);
-void rdboard(const char* filename);
-char getboard(int x, int y);
-void setboard(int x, int y, char val);
-void outboard();
+class Board {
+  char inboard[MAXBOARD][MAXBOARD];
+  int h, w;
+public:
+  char get(int x, int y);
+  void set(int x, int y, char val);
+  void out();
+  void rd(const char* filename);
+};
+
 
 #endif // HEADER_DUNGEON_XRAWLER_STORAGE_HPP
