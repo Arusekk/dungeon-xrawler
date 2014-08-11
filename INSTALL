@@ -2,14 +2,34 @@
 INSTALATION NOTES
 =================
 
-You need g++ (= gcc-c++), make and a terminal while compiling source code. Just enter the
-main folder and type `./configure' (this checks if you have all the requirements).
-Then if you fulfilled our requirements just type `make'. Since now, you can run it directly (`./dungeon-xrawler').
 
-NOTE: If you want your language translation, type `make translate'. This command is not
-perfect as it for granted that you have `lokalize' tool installed.
+
+
+########
+BUILDING
+########
+
+You need g++ (= gcc-c++), GNU make and a terminal while compiling source code. Just enter the
+main folder and type `./configure' (this checks if you have all the requirements).
+Then if you fulfilled our requirements just type `make'. Since now, you can run it directly (`./dungeon-xrawler')
+or use some of the shortcuts (like `dungeon-xrawler.desktop').
+
+NOTE: If you want your language translation, install `lokalize' tool before configuring.
+
+
+
+
+#######
+WINDOWS
+#######
 
 For Windows you can just download the installer [WorkInProgress]
+
+
+
+####
+MORE
+####
 
 More info can be found on wiki:
  https://code.google.com/p/dungeon-xrawler/wiki/Installing
