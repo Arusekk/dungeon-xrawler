@@ -2,24 +2,6 @@
 
 PlayerObject* Player=new PlayerObject;
 
-/** Returns free cells from all the sides
- * @param x x-pos in the board
- * @param y y-pos in the board
- * @returns int value `a` that booleans like `a&sides::up` = "is the upper cell of (x,y) free?"
- */
-int allowpoz(int x, int y) {
-  int returnval=0;
-  if (Board->get(x,y+1) != '#')
-    returnval |= sides::up;
-  if (Board->get(x,y-1) != '#')
-    returnval |= sides::down;
-  if (Board->get(x+1,y) != '#')
-    returnval |= sides::right;
-  if (Board->get(x-1,y) != '#')
-    returnval |= sides::left;
-  return returnval;
-}
-
 /** Prints HP of an object
  * @param cur current health
  * @param max maximum health

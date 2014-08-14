@@ -8,5 +8,7 @@ public:
   void init_me();
 };
 
+extern Interface* UI;
+
 
 #endif // HEADER_DUNGEON_XRAWLER_SCREEN_HPP

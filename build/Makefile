@@ -14,4 +14,4 @@ ${objects} main.o: %.o: $(addprefix ${place}/src/,dungeon-xrawler.hpp %.cpp)
 	$Qmkdir -p ${@D}
 	$Q${CXX} ${CXXFLAGS} -c ${place}/src/$(@:.o=.cpp) -o $@
 
-${objects}: %.o: ${place}/src/%.hpp
+# ${objects}: %.o: ${place}/src/%.hpp

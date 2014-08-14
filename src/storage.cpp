@@ -84,4 +84,22 @@ void Board::out() {
   }
 }
 
+/** Returns free cells from all the sides
+ * @param x x-pos in the board
+ * @param y y-pos in the board
+ * @returns int value `a` that booleans like `a&sides::up` mean "is the upper cell of (x,y) free?"
+ */
+int Board::allowpoz(int x, int y) {
+  int returnval=0;
+  if (get(x,y+1) != '#')
+    returnval |= sides::up;
+  if (get(x,y-1) != '#')
+    returnval |= sides::down;
+  if (get(x+1,y) != '#')
+    returnval |= sides::right;
+  if (get(x-1,y) != '#')
+    returnval |= sides::left;
+  return returnval;
+}
+
 /* EOF */

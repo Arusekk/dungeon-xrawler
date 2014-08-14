@@ -59,23 +59,24 @@ std::ostream& log_fatal_f(const char* file, int line) {
  * @param line line where the event happened
  * @returns logging instance with prefix already written
  */
+std::string log_fmt(std::string str) {
+  std::stringstream out;
+  out << '"' << str << '"';
+  return out.str();
+}
+
 template <class T>
 std::string log_fmt(std::vector<T> vec) {
   uint i;
   std::stringstream out;
   out << '[';
-//   foreach(vec,i) // not working with templates
-  for (i=0; i<vec.size()-1; i++)
-    out << log_fmt(vec[i]) << ", ";
-  if (vec.size()>0)
+//   foreach(vec,i) // iterators not working with templates
+  for (i=0; i<vec.size(); i++) {
     out << log_fmt(vec[i]);
+    if (i!=vec.size()-1)
+      out << ", ";
+  }
   out << ']';
-  return out.str();
-}
-
-std::string log_fmt(std::string str) {
-  std::stringstream out;
-  out << '"' << str << '"';
   return out.str();
 }
 

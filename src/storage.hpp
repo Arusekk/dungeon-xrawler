@@ -13,7 +13,9 @@ public:
   void set(int x, int y, char val);
   void out();
   void rd(const char* filename);
+  int allowpoz(int x, int y);
 };
 
+void* xmalloc_f(size_t size, const char* file, int line);
 
 #endif // HEADER_DUNGEON_XRAWLER_STORAGE_HPP

@@ -10,4 +10,5 @@ public:
   void set(int x, int y, char val);
   void out();
   void rd(const char* filename);
+  int allowpoz(int x, int y);
 };

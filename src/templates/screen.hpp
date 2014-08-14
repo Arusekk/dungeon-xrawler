@@ -4,3 +4,5 @@ public:
   void pause_me();
   void init_me();
 };
+
+extern Interface* UI;

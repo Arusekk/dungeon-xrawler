@@ -5,12 +5,15 @@ include_decl:=${hash_sign}include "%.hpp"${magic_str}
 ismainhpp=$(call seq,dungeon-xrawler.hpp,$@)
 mainhppfuncs=$(patsubst %.o,${include_decl},${objects})
 shellcmd1=cat $(@:.hpp=.cpp)
-shellcmd2:=|grep -E "${regex_c_func}"
-shellcmd3:=|sed -e 's/${regex_c_spc}*{${regex_c_spc}*//g'
+shellcmd2:=|grep -E '${regex_c_func}'
+shellcmd3:=|sed -e 's/{//g'
 shellcmd4:=|sed -e 's/)${regex_c_spc}*$$/)${semicolon_sign}${magic_str}/g'
 shellcmd=${shellcmd1}${shellcmd2}${shellcmd3}${shellcmd4}
+
+qescape=$(subst ",\",$1)
+# $(shell echo "$(call qescape,${shellcmd})" >>~/tempeu; echo -e '\n\n' >>~/tempeu)
 othrhppfuncs=$(shell ${shellcmd})
-funcs=$(if ${ishpp},$(if ${ismainhpp},${mainhppfuncs},${othrhppfuncs}),)
+funcs=$(if $(call seq,_.hpp-end,$1),$(if ${ismainhpp},${mainhppfuncs},${othrhppfuncs}),)
 
 
 fname=HEADER_DUNGEON_XRAWLER_$(call uc,$(subst -,_,$(subst /,_,$(subst .,_,$@))))

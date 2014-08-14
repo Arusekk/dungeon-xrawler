@@ -11,7 +11,7 @@ clean:
 	${RM} -r */
 
 messages.pot: $(addprefix ${place}/src/,$(objects:.o=.cpp) main.cpp) ${place}/VERSION
-	$Qxgettext -c* -c/ -k_ -o $@.tmp -w99 -F --copyright-holder=Arusekk --package-name=dungeon-xrawler --msgid-bugs-address='${my_email}' --package-version="`cat ${place}/VERSION`" --force-po $(addprefix ${place}/src/,$(objects:.o=.cpp) main.cpp)
+	$Qxgettext -c* -c/ -k_ -o $@.tmp -w99 -F --copyright-holder=Arusekk --package-name=dungeon-xrawler --msgid-bugs-address='${my_email}' --package-version="`cat ${place}/VERSION`" --force-po $(addprefix ../../src/,$(objects:.o=.cpp) main.cpp)
 	$Qdiff $@ $@.tmp |grep -E '^>' |grep -qv Date || ${RM} $@.tmp
 	$Qtest ! -e $@.tmp || mv $@.tmp $@
 
