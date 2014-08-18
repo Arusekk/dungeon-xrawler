@@ -1,5 +1,5 @@
 PKGVERSION:=0.05 alpha
-objects:=screen.o storage.o logging.o utils.o mazeobject.o player.o
+objects:=logging.o utils.o storage.o mazeobject.o player.o state.o level.o menu.o screen.o
 # objects=$(patsubst %.cpp,%.o,$(wildcard [!m]*.cpp))
 my_email:=Arusekk <arusekk@gmail.com>
 VERBOSE?=0

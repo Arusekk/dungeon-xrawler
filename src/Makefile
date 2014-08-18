@@ -10,7 +10,7 @@ all: $(objects:.o=.hpp) dungeon-xrawler.hpp
 clean:
 	${RM} $(objects:.o=.hpp) dungeon-xrawler.hpp
 
-dungeon-xrawler.hpp: %: templates/%
+dungeon-xrawler.hpp: templates/dungeon-xrawler.hpp
 	$Qecho -en '$(call template,$@)' >$@
 
 %.hpp: templates/%.hpp %.cpp ${place}/mkspec/regex_c

@@ -26,7 +26,6 @@ int main(int argc, char* argv[]) {
 	       "<file> is of format `levels/1.txt' or `art/stickman.txt'\n"), argv[0], argv[0]);
       return 0;
     }
-    UI->init_me();
     /// please leave `%d` as it is changed into the number
     printf(ngettext("showing %d ASCII-image\n","showing %d ASCII-images\n",argc-1), argc-1);
     Board* Img=new Board;
@@ -36,22 +35,7 @@ int main(int argc, char* argv[]) {
     }
   }
   else {
-    Player->set_HP(69);
-    Player->set_max_HP(123);
     UI->init_me();
-    Board* Brd=new Board;
-    Brd->rd("levels/1.txt");
-    Brd->out();
-    Brd->rd("art/weapons/dagger.txt");
-    Brd->out();
-    Brd->rd("art/stickman.txt");
-    Brd->out();
-    Brd->rd("art/stickman2.txt");
-    Brd->out();
-    Brd->rd("art/stickgirl.txt");
-    Brd->out();
-    Brd->rd("art/stickgirl2.txt");
-    Brd->out();
   }
   UI->pause_me();
   return 0;

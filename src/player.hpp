@@ -1,17 +1,19 @@
 #ifndef HEADER_DUNGEON_XRAWLER_PLAYER_HPP
 #define HEADER_DUNGEON_XRAWLER_PLAYER_HPP
 
-enum sides {
-  up=1, down=2, left=4, right=8
-};
-
 class PlayerObject: public MazeObject {
   std::string name;
+  Board* bound_board;
 public:
+  int curx,cury;
   PlayerObject();
+  PlayerObject(const PlayerObject& other);
+  PlayerObject& operator=(const PlayerObject& other);
   std::string get_name();
-  void set_HP(int n);
-  void set_max_HP(int n);
+  void bind_board(Board* brd);
+  int won(int side);
+  int allowpoz();
+  bool allowpoz(int side);
 };
 
 extern PlayerObject* Player;

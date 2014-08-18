@@ -16,11 +16,14 @@
 #include <algorithm>
 #include <bits/stdc++.h>
 
-#include "screen.hpp"
-#include "storage.hpp"
 #include "logging.hpp"
 #include "utils.hpp"
 #include "mazeobject.hpp"
+#include "storage.hpp"
 #include "player.hpp"
+#include "state.hpp"
+#include "level.hpp"
+#include "menu.hpp"
+#include "screen.hpp"
 
 #endif // HEADER_DUNGEON_XRAWLER_DUNGEON_XRAWLER_HPP

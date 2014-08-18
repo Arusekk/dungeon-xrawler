@@ -5,5 +5,7 @@ class MazeObject {
 public:
   MazeObject();
   virtual ~MazeObject();
+  void set_HP(int n);
+  void set_max_HP(int n);
   void print_hp();
 };

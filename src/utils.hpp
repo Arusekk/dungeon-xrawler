@@ -5,5 +5,7 @@
 #define foreachs(kind,tab,it) for(decltype(tab)::kind##_iterator it=(tab).begin(); it!=(tab).end(); it++)
 
 void pass();
+char swapcase(char c);
+std::string swapcase(std::string s);
 
 #endif // HEADER_DUNGEON_XRAWLER_UTILS_HPP

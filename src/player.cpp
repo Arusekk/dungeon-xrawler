@@ -2,7 +2,7 @@
 
 PlayerObject* Player=new PlayerObject;
 
-/** Prints HP of an object
+/** Prints HP of anything
  * @param cur current health
  * @param max maximum health
  */
@@ -38,22 +38,47 @@ std::string PlayerObject::get_name() {
   return name;
 }
 
-PlayerObject::PlayerObject() : name("Zenon") {
+PlayerObject::PlayerObject() : name("Zenon"), bound_board(0), curx(0), cury(0) {
   // load name from storage or ath else
 }
 
-/** Sets current HP of the player
- * @param n new value of cur_HP to set
- */
-void PlayerObject::set_HP(int n) {
-  cur_HP=n;
+PlayerObject::PlayerObject(const PlayerObject& other) : name(other.name), bound_board(0), curx(0), cury(0) {
+  set_HP(other.cur_HP);
+  set_max_HP(other.max_HP);
 }
 
-/** Sets max HP of the player
- * @param n new value of max_HP to set
- */
-void PlayerObject::set_max_HP(int n) {
-  max_HP=n;
+PlayerObject& PlayerObject::operator=(const PlayerObject& other) {
+  name=other.name;
+  set_HP(other.cur_HP);
+  set_max_HP(other.max_HP);
+  return *this;
+}
+
+int PlayerObject::won(int side) {
+  std::pair<int,int> newpos=movexy(curx,cury,side);
+  curx=newpos.first;
+  cury=newpos.second;
+  switch (bound_board->get(curx,cury)) {
+    case '&':
+      return 2;
+    case 'E':
+      return 1;
+    default:
+      return 0;
+  }
+}
+
+bool PlayerObject::allowpoz(int side) {
+  return (allowpoz()&side)/side;
+}
+
+int PlayerObject::allowpoz() {
+  return bound_board->allowpoz(curx, cury);
+}
+
+void PlayerObject::bind_board(Board* Brd) {
+  bound_board=Brd;
+  Brd->set_player();
 }
 
 /* EOF */

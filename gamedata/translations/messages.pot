@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dungeon-xrawler 0.05 alpha\n"
 "Report-Msgid-Bugs-To: Arusekk <arusekk@gmail.com>\n"
-"POT-Creation-Date: 2014-08-11 13:17+0200\n"
+"POT-Creation-Date: 2014-08-18 21:46+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,67 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: ../../src/level.cpp:12 ../../src/menu.cpp:9
+#, c-format
+msgid "Welcome, son.\n"
+msgstr ""
+
+#: ../../src/level.cpp:14
+#, c-format
+msgid "Available moves:\n"
+msgstr ""
+
+#: ../../src/level.cpp:16 ../../src/menu.cpp:15
+#, c-format
+msgid "[type the letter preceded by & (in th&is case it's `i') to select]\n"
+msgstr ""
+
+#: ../../src/level.cpp:18 ../../src/menu.cpp:17
+#, c-format
+msgid "[type the underlined letter to select]\n"
+msgstr ""
+
+#: ../../src/level.cpp:36 ../../src/menu.cpp:35
+#, c-format
+msgid "What is your choice? "
+msgstr ""
+
+#: ../../src/level.cpp:39 ../../src/menu.cpp:38
+msgid "No such option."
+msgstr ""
+
+#: ../../src/level.cpp:46
+msgid "The path is blocked."
+msgstr ""
+
+#: ../../src/level.cpp:51
+msgid "You have won."
+msgstr ""
+
+#: ../../src/level.cpp:64
+msgid "You have lost."
+msgstr ""
+
+#: ../../src/level.cpp:73 ../../src/level.cpp:90
+msgid "&Up"
+msgstr ""
+
+#: ../../src/level.cpp:74 ../../src/level.cpp:91
+msgid "&Down"
+msgstr ""
+
+#: ../../src/level.cpp:75 ../../src/level.cpp:92
+msgid "&Left"
+msgstr ""
+
+#: ../../src/level.cpp:76 ../../src/level.cpp:93
+msgid "&Right"
+msgstr ""
+
+#: ../../src/level.cpp:78 ../../src/level.cpp:95 ../../src/menu.cpp:53 ../../src/menu.cpp:63
+msgid "&Quit"
+msgstr ""
 
 #. / please leave untranslated the words -h and --help, and the paths like `levels/1.txt'
 #: ../../src/main.cpp:23
@@ -29,12 +90,38 @@ msgid ""
 msgstr ""
 
 #. / please leave `%d` as it is changed into the number
-#: ../../src/main.cpp:31
+#: ../../src/main.cpp:30
 #, c-format
 msgid "showing %d ASCII-image\n"
 msgid_plural "showing %d ASCII-images\n"
 msgstr[0] ""
 msgstr[1] ""
+
+#: ../../src/menu.cpp:11
+#, c-format
+msgid "Main Menu:\n"
+msgstr ""
+
+#: ../../src/menu.cpp:13
+#, c-format
+msgid "Level Select:\n"
+msgstr ""
+
+#: ../../src/menu.cpp:48
+msgid "Start &Game"
+msgstr ""
+
+#: ../../src/menu.cpp:49
+msgid "&Level select"
+msgstr ""
+
+#: ../../src/menu.cpp:50
+msgid "&Help"
+msgstr ""
+
+#: ../../src/menu.cpp:51
+msgid "&Settings"
+msgstr ""
 
 #. / HP is an international shortcut for Health Points
 #: ../../src/player.cpp:33
@@ -45,9 +132,4 @@ msgstr ""
 #: ../../src/screen.cpp:11
 #, c-format
 msgid "Press any key to continue . . . "
-msgstr ""
-
-#: ../../src/screen.cpp:33
-#, c-format
-msgid "Welcome, son.\n"
 msgstr ""
