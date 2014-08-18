@@ -65,6 +65,12 @@ std::string log_fmt(std::string str) {
   return out.str();
 }
 
+std::string log_fmt(int num) {
+  std::stringstream out;
+  out << num;
+  return out.str();
+}
+
 template <class T>
 std::string log_fmt(std::vector<T> vec) {
   uint i;
@@ -88,6 +94,6 @@ std::string log_fmt(T ipt) {
 }
 
 void bekon(){
-std::vector<std::string>a;log_fmt(a);}
+std::vector<std::string>a;std::vector<int> b(1);log_fmt(a);log_fmt(b);}
 
 /* EOF */

@@ -11,9 +11,9 @@ clean:
 	${RM} -r */
 
 messages.pot: $(addprefix ${place}/src/,$(objects:.o=.cpp) main.cpp) ${place}/VERSION
-	$Qxgettext -c* -c/ -k_ -o $@.tmp -w99 -F --copyright-holder=Arusekk --package-name=dungeon-xrawler --msgid-bugs-address='${my_email}' --package-version="`cat ${place}/VERSION`" --force-po $(addprefix ../../src/,$(objects:.o=.cpp) main.cpp)
-	$Qdiff $@ $@.tmp |grep -E '^>' |grep -qv Date || ${RM} $@.tmp
-	$Qtest ! -e $@.tmp || mv $@.tmp $@
+	$Qxgettext -c* -c/ -k_ -o $@ -w99 -F --copyright-holder=Arusekk --package-name=dungeon-xrawler --msgid-bugs-address='${my_email}' --package-version="`cat ${place}/VERSION`" --force-po $(addprefix ../../src/,$(objects:.o=.cpp) main.cpp)
+#	$Qdiff $@ $@.tmp |grep -E '^>' |grep -qv Date || ${RM} $@.tmp
+#	$Qtest ! -e $@.tmp || mv $@.tmp $@
 
 ifeq (${lokalize_ver},)
 %.po: messages.pot
@@ -21,10 +21,11 @@ ifeq (${lokalize_ver},)
 
 else
 %.po: messages.pot
-	$Qtest ! -e $@ || ((diff $@ $< |grep -Eq '(msgid|#[.:]|Version)') && ${RM} $@) || true
+	$Qtest -e $@ || msginit --no-translator -l ${@F} -i $< -o $@
 	@touch $@
-	$Qmsginit --no-translator -l ${@F} -i $< -o $@
-	$Qlokalize $@ 2>/dev/null
+	$Qmsgmerge --previous --add-location --force-po $@ $< -o $@.tmp
+	$Qdiff $@ $@.tmp |grep -E '^>' |grep -qv Date || mv $@.tmp $@
+	$Qtest ! -e $@.tmp || (mv $@.tmp $@ && lokalize $@ 2>/dev/null)
 
 endif
 %/LC_MESSAGES/dungeon-xrawler.mo: %.po

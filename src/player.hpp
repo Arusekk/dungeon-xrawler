@@ -5,6 +5,7 @@ class PlayerObject: public MazeObject {
   std::string name;
   Board* bound_board;
 public:
+  int coins;
   int curx,cury;
   PlayerObject();
   PlayerObject(const PlayerObject& other);

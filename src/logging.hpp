@@ -13,6 +13,7 @@ std::ostream& log_info_f(const char* file, int line);
 std::ostream& log_warning_f(const char* file, int line);
 std::ostream& log_fatal_f(const char* file, int line);
 std::string log_fmt(std::string str);
+std::string log_fmt(int num);
 template <class T> std::string log_fmt(std::vector<T> vec);
 template <class T> std::string log_fmt(T ipt);
 void bekon();

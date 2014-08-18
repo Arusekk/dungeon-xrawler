@@ -59,10 +59,12 @@ Menu::Menu() : kind(0),options({}),mapping({}) {
 Menu::Menu(int n) : kind(n),options({}),mapping({}) {
   options.push_back("&1");
   options.push_back("&2");
+  options.push_back("&3");
   options.push_back("---------------");
   options.push_back(_("&Quit"));
   mapping['1']=new Level("1");
   mapping['2']=new Level("2");
+  mapping['3']=new Level("3");
   mapping['q']=mapping['Q']=new State;
 }
 
@@ -75,6 +77,7 @@ Menu::~Menu() {
   if (kind==1) {
     delete mapping['1'];
     delete mapping['2'];
+    delete mapping['3'];
   }
 }
 

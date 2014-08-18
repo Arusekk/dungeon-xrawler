@@ -11,6 +11,7 @@ reload_lvl:
   Brd->out();
   printf(_("Welcome, son.\n"));
   printhp_pl();
+  printf(_("Cash: %d$\n"), Player->coins);
   printf(_("Available moves:\n"));
 #ifdef __WIN32
   printf(_("[type the letter preceded by & (in th&is case it's `i') to select]\n"));

@@ -137,6 +137,8 @@ void Board::out() {
 	printf(";32;40");
       if (c=='$')
 	printf(";33;40");
+      if (c=='%')
+	printf(";34;40");
       if (c=='E')
 	printf(";35;40");
       putchar('m');

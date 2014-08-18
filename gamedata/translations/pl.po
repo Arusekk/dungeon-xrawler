@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dungeon-xrawler 0.05 alpha\n"
 "Report-Msgid-Bugs-To: Arusekk <arusekk@gmail.com>\n"
-"POT-Creation-Date: 2014-08-18 21:46+0200\n"
-"PO-Revision-Date: 2014-08-18 21:51+0200\n"
+"POT-Creation-Date: 2014-08-18 23:04+0200\n"
+"PO-Revision-Date: 2014-08-18 22:59+0200\n"
 "Last-Translator: Arusekk <arusekk@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -27,58 +27,63 @@ msgstr "Witaj, synu.\n"
 
 #: ../../src/level.cpp:14
 #, c-format
+msgid "Cash: %d$\n"
+msgstr "Gotówka: %d,-\n"
+
+#: ../../src/level.cpp:15
+#, c-format
 msgid "Available moves:\n"
 msgstr "Dostępne ruchy:\n"
 
-#: ../../src/level.cpp:16 ../../src/menu.cpp:15
+#: ../../src/level.cpp:17 ../../src/menu.cpp:15
 #, c-format
 msgid "[type the letter preceded by & (in th&is case it's `i') to select]\n"
 msgstr "[podaj literę poprzedzoną przez & (w t&ym przypadku `&') aby wybrać]\n"
 
-#: ../../src/level.cpp:18 ../../src/menu.cpp:17
+#: ../../src/level.cpp:19 ../../src/menu.cpp:17
 #, c-format
 msgid "[type the underlined letter to select]\n"
 msgstr "[podaj podkreśloną literę aby wybrać]\n"
 
-#: ../../src/level.cpp:36 ../../src/menu.cpp:35
+#: ../../src/level.cpp:37 ../../src/menu.cpp:35
 #, c-format
 msgid "What is your choice? "
 msgstr "Jaki jest twój wybór? "
 
-#: ../../src/level.cpp:39 ../../src/menu.cpp:38
+#: ../../src/level.cpp:40 ../../src/menu.cpp:38
 msgid "No such option."
 msgstr "Nie ma takiej opcji."
 
-#: ../../src/level.cpp:46
+#: ../../src/level.cpp:47
 msgid "The path is blocked."
 msgstr "Droga jest zablokowana."
 
-#: ../../src/level.cpp:51
+#: ../../src/level.cpp:52
 msgid "You have won."
 msgstr "Wygrałeś."
 
-#: ../../src/level.cpp:64
+#: ../../src/level.cpp:65
 msgid "You have lost."
 msgstr "Przegrałeś."
 
-#: ../../src/level.cpp:73 ../../src/level.cpp:90
+#: ../../src/level.cpp:74 ../../src/level.cpp:91
 msgid "&Up"
 msgstr "W Górę (&U)"
 
-#: ../../src/level.cpp:74 ../../src/level.cpp:91
+#: ../../src/level.cpp:75 ../../src/level.cpp:92
 msgid "&Down"
 msgstr "W &Dół"
 
-#: ../../src/level.cpp:75 ../../src/level.cpp:92
+#: ../../src/level.cpp:76 ../../src/level.cpp:93
 msgid "&Left"
 msgstr "W &Lewo"
 
-#: ../../src/level.cpp:76 ../../src/level.cpp:93
+#: ../../src/level.cpp:77 ../../src/level.cpp:94
 msgid "&Right"
 msgstr "W P&rawo"
 
-#: ../../src/level.cpp:78 ../../src/level.cpp:95 ../../src/menu.cpp:53
-#: ../../src/menu.cpp:63
+#: ../../src/level.cpp:79 ../../src/level.cpp:96 ../../src/menu.cpp:53
+#: ../../src/menu.cpp:64
 msgid "&Quit"
 msgstr "Wyjdź (&Q)"
 
@@ -141,4 +146,3 @@ msgstr "Twoje HP: "
 #, c-format
 msgid "Press any key to continue . . . "
 msgstr "Aby kontynuować, naciśnij dowolny klawisz . . . "
-

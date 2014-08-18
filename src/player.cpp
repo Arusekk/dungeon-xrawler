@@ -38,31 +38,49 @@ std::string PlayerObject::get_name() {
   return name;
 }
 
-PlayerObject::PlayerObject() : name("Zenon"), bound_board(0), curx(0), cury(0) {
+PlayerObject::PlayerObject() : name("Zenon"), bound_board(0), coins(0), curx(9999), cury(9999) {
   // load name from storage or ath else
 }
 
-PlayerObject::PlayerObject(const PlayerObject& other) : name(other.name), bound_board(0), curx(0), cury(0) {
+PlayerObject::PlayerObject(const PlayerObject& other) : name(other.name), bound_board(other.bound_board), coins(other.coins), curx(other.curx), cury(other.cury) {
   set_HP(other.cur_HP);
   set_max_HP(other.max_HP);
 }
 
 PlayerObject& PlayerObject::operator=(const PlayerObject& other) {
   name=other.name;
+  coins=other.coins;
   set_HP(other.cur_HP);
   set_max_HP(other.max_HP);
+  curx=other.curx;
+  cury=other.cury;
   return *this;
 }
 
 int PlayerObject::won(int side) {
+  Board* Brd;
   std::pair<int,int> newpos=movexy(curx,cury,side);
   curx=newpos.first;
   cury=newpos.second;
   switch (bound_board->get(curx,cury)) {
     case '&':
+      coins=0;
       return 2;
     case 'E':
       return 1;
+    case '%':
+      Brd=new Board;
+      Brd->rd("art/weapons/dagger.txt");
+      Brd->out();
+      delete Brd;
+      if (1)
+	bound_board->set(curx,cury,' ');
+      UI->pause_me();
+      return 0;
+    case '$':
+      bound_board->set(curx,cury,' ');
+      coins++;
+      return 0;
     default:
       return 0;
   }
