@@ -7,7 +7,7 @@ int Level::activate() {
   char c;
   Player->bind_board(Brd);
 reload_lvl:
-  UI->clear_me();
+  UI->clear();
   Brd->out();
   printf(_("Welcome, son.\n"));
   printhp_pl();
@@ -35,16 +35,25 @@ reload_lvl:
   }
 bad_ltr:
   printf(_("What is your choice? "));
+  printf("    \b\b\b\b");
   c=UI->get_letter();
   if (mapping.find(c)==mapping.end()) {
-    puts(_("No such option."));
+#ifndef __WIN32
+    printf("\x1b[A");
+#endif
+    printf(_("No such option."));
+    putchar(' ');
     goto bad_ltr;
   }
   side=mapping[c];
   if (side==0)
     return 1;
   if (!Player->allowpoz(side)) {
-    puts(_("The path is blocked."));
+#ifndef __WIN32
+    printf("\x1b[A");
+#endif
+    printf(_("The path is blocked."));
+    putchar(' ');
     goto bad_ltr;
   }
   side=Player->won(side);
@@ -59,28 +68,28 @@ bad_ltr:
     Brd->rd(next->str());
     delete next;
     Player->bind_board(Brd);
-    UI->pause_me();
+    UI->pause();
   }
   if (side==2) {
     puts(_("You have lost."));
     Brd->rd();
     Player->bind_board(Brd);
-    UI->pause_me();
+    UI->pause();
   }
   goto reload_lvl;
 }
 
 Level::Level() : file("1"), moves({}), mapping({}), Brd(new Board) {
-  moves.push_back(_("&Up"));
-  moves.push_back(_("&Down"));
-  moves.push_back(_("&Left"));
-  moves.push_back(_("&Right"));
+  moves.push_back(_("Up (&W)"));
+  moves.push_back(_("Down (&S)"));
+  moves.push_back(_("Left (&A)"));
+  moves.push_back(_("Right (&D)"));
   moves.push_back("---------");
   moves.push_back(_("&Quit"));
-  mapping['u']=mapping['U']=sides::up;
-  mapping['d']=mapping['D']=sides::down;
-  mapping['l']=mapping['L']=sides::left;
-  mapping['r']=mapping['R']=sides::right;
+  mapping['w']=mapping['W']=sides::up;
+  mapping['s']=mapping['S']=sides::down;
+  mapping['a']=mapping['A']=sides::left;
+  mapping['d']=mapping['D']=sides::right;
   mapping['q']=mapping['Q']=0;
   std::stringstream fn;
   fn << "levels/" << file << ".txt";
@@ -88,16 +97,16 @@ Level::Level() : file("1"), moves({}), mapping({}), Brd(new Board) {
 }
 
 Level::Level(std::string name) : file(name), moves({}), mapping({}), Brd(new Board) {
-  moves.push_back(_("&Up"));
-  moves.push_back(_("&Down"));
-  moves.push_back(_("&Left"));
-  moves.push_back(_("&Right"));
+  moves.push_back(_("Up (&W)"));
+  moves.push_back(_("Down (&S)"));
+  moves.push_back(_("Left (&A)"));
+  moves.push_back(_("Right (&D)"));
   moves.push_back("---------");
   moves.push_back(_("&Quit"));
-  mapping['u']=mapping['U']=sides::up;
-  mapping['d']=mapping['D']=sides::down;
-  mapping['l']=mapping['L']=sides::left;
-  mapping['r']=mapping['R']=sides::right;
+  mapping['w']=mapping['W']=sides::up;
+  mapping['s']=mapping['S']=sides::down;
+  mapping['a']=mapping['A']=sides::left;
+  mapping['d']=mapping['D']=sides::right;
   mapping['q']=mapping['Q']=0;
   std::stringstream fn;
   fn << "levels/" << file << ".txt";

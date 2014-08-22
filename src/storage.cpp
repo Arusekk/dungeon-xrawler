@@ -151,6 +151,46 @@ void Board::out() {
     puts("");
   }
 }
+void Board::out_slowly() {
+  int i,j;
+  char c;
+  for (i=0; i<h; i++) {
+    for (j=0; j<w; j++) {
+      c=inboard[i][j];
+      if (i==Player->cury && j==Player->curx) {
+	c='@';
+      }
+#ifndef __WIN32
+      printf("\x1b[1");
+      if (c=='#')
+	printf(";37;44");
+      if (c==' ')
+	printf(";37;40");
+      if (c=='&')
+	printf(";31;40");
+      if (c=='@')
+	printf(";32;40");
+      if (c=='$')
+	printf(";33;40");
+      if (c=='%')
+	printf(";34;40");
+      if (c=='E')
+	printf(";35;40");
+      putchar('m');
+#endif
+      putchar(c);
+#ifndef __WIN32
+      printf("\x1b[0m");
+#endif
+    }
+    puts("");
+    UI->sleep(100);
+    /*
+    for (j=0;j<50000000;j++)
+      pass();
+    */
+  }
+}
 
 /** Returns free cells from all the sides
  * @param x x-pos in the board

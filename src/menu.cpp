@@ -5,7 +5,7 @@ int Menu::activate() {
   int ret;
   char c;
 reload_menu:
-  UI->clear_me();
+  UI->clear();
   printf(_("Welcome, son.\n"));
   if (kind==0)
     printf(_("Main Menu:\n"));

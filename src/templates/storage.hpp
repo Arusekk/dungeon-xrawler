@@ -18,6 +18,7 @@ public:
   char get(std::pair<int,int> poz);
   void set(int x, int y, char val);
   void out();
+  void out_slowly();
   void rd();
   void rd(std::string filename);
   void rd(const char* filename);

@@ -35,9 +35,9 @@ int main(int argc, char* argv[]) {
     }
   }
   else {
-    UI->init_me();
+    UI->init();
   }
-  UI->pause_me();
+  UI->pause();
   return 0;
 }
 

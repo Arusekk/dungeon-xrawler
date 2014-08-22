@@ -75,7 +75,8 @@ int PlayerObject::won(int side) {
       delete Brd;
       if (1)
 	bound_board->set(curx,cury,' ');
-      UI->pause_me();
+      UI->sleep(500);
+      UI->pause();
       return 0;
     case '$':
       bound_board->set(curx,cury,' ');

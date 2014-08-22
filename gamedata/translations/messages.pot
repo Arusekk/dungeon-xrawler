@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dungeon-xrawler 0.05 alpha\n"
 "Report-Msgid-Bugs-To: Arusekk <arusekk@gmail.com>\n"
-"POT-Creation-Date: 2014-08-18 23:04+0200\n"
+"POT-Creation-Date: 2014-08-22 10:57+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -48,39 +48,41 @@ msgstr ""
 msgid "What is your choice? "
 msgstr ""
 
-#: ../../src/level.cpp:40 ../../src/menu.cpp:38
+#: ../../src/level.cpp:44 ../../src/menu.cpp:38
+#, c-format
 msgid "No such option."
 msgstr ""
 
-#: ../../src/level.cpp:47
+#: ../../src/level.cpp:55
+#, c-format
 msgid "The path is blocked."
 msgstr ""
 
-#: ../../src/level.cpp:52
+#: ../../src/level.cpp:61
 msgid "You have won."
 msgstr ""
 
-#: ../../src/level.cpp:65
+#: ../../src/level.cpp:74
 msgid "You have lost."
 msgstr ""
 
-#: ../../src/level.cpp:74 ../../src/level.cpp:91
-msgid "&Up"
+#: ../../src/level.cpp:83 ../../src/level.cpp:100
+msgid "Up (&W)"
 msgstr ""
 
-#: ../../src/level.cpp:75 ../../src/level.cpp:92
-msgid "&Down"
+#: ../../src/level.cpp:84 ../../src/level.cpp:101
+msgid "Down (&S)"
 msgstr ""
 
-#: ../../src/level.cpp:76 ../../src/level.cpp:93
-msgid "&Left"
+#: ../../src/level.cpp:85 ../../src/level.cpp:102
+msgid "Left (&A)"
 msgstr ""
 
-#: ../../src/level.cpp:77 ../../src/level.cpp:94
-msgid "&Right"
+#: ../../src/level.cpp:86 ../../src/level.cpp:103
+msgid "Right (&D)"
 msgstr ""
 
-#: ../../src/level.cpp:79 ../../src/level.cpp:96 ../../src/menu.cpp:53 ../../src/menu.cpp:64
+#: ../../src/level.cpp:88 ../../src/level.cpp:105 ../../src/menu.cpp:53 ../../src/menu.cpp:64
 msgid "&Quit"
 msgstr ""
 
