@@ -11,7 +11,7 @@ all clean: VERSION
 	@${MAKE} place=${place} -C build $@
 	@${MAKE} place=${place} -C gamedata/translations $@
 	@$(if $(call seq,clean,$@),,${MAKE} misc)
-	@$(congrat)
+	@$(if ${windows},,${congrat})
 
 src build translate: VERSION
 	@${MAKE} place=${place} -C $(@:%e=gamedata/%ions)

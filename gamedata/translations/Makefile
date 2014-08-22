@@ -1,6 +1,6 @@
 include ../../mkspec/props
 place?=$(shell realpath ../..)
-lokalize_ver=$(shell lokalize --version 2>/dev/null|grep kalize|cut -b 11-)
+lokalize_ver=$(shell lokalize --version 2>/dev/null)
 
 .PHONY: all clean
 

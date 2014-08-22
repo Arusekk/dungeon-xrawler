@@ -1,0 +1,19 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Type=Application
+Version=1.0
+Encoding=UTF-8
+Name=Dungeon Xrawler
+Name[en]=Dungeon Xrawler
+GenericName=Console game
+GenericName[en]=Console game
+GenericName[pl]=Gra konsolowa
+Comment=Play a classic terminal game
+Comment[en]=Play a classic terminal game
+Comment[pl]=Zagraj w klasyczną grę terminalową
+Path=/home/are/Dokumenty/dungeon-xrawler/dungeon-xrawler
+Icon=/home/are/Dokumenty/dungeon-xrawler/dungeon-xrawler/dungeon-xrawler.xpm
+Exec=/home/are/Dokumenty/dungeon-xrawler/dungeon-xrawler/dungeon-xrawler
+Terminal=true
+StartupNotify=false
+Categories=Game;StrategyGame;

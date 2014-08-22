@@ -9,5 +9,4 @@ cd ..
 rename TEMPF125 TEMPF125.cpp
 start TEMPF125.cpp
 ping -n 2 127.1.2.3 >nul
-del nul
 del TEMPF125.cpp
