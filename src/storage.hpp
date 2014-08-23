@@ -11,17 +11,22 @@ enum sides {
 
 class Board {
   char inboard[MAXBOARD][MAXBOARD];
+public:
   int h, w;
+private:
   int curx,cury;
   std::string fn;
-  bool bound;
 public:
+  bool bound;
+  std::string prev,next;
   Board();
   char get(int x, int y);
   char get(std::pair<int,int> poz);
   void set(int x, int y, char val);
+  void set(std::pair<int,int> xy, char val);
   void out();
   void out_slowly();
+  void out_slowly(int ms);
   void rd();
   void rd(std::string filename);
   void rd(const char* filename);

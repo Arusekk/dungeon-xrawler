@@ -1,17 +1,37 @@
 #ifndef HEADER_DUNGEON_XRAWLER_LEVEL_HPP
 #define HEADER_DUNGEON_XRAWLER_LEVEL_HPP
 
-class Level : public State {
+class LevelObj : public State {
   std::string file;
   std::vector<std::string> moves;
   std::map<char,int> mapping;
-  Board* Brd;
 public:
-  Level();
-  Level(std::string name);
-  Level(const Level& other);
-  Level(const State& other);
-  Level& operator=(const Level& other);
+  Board* Brd;
+  LevelObj();
+  LevelObj(std::string name);
+  LevelObj(const char* name);
+  LevelObj(const LevelObj& other);
+  LevelObj(const State& other);
+  LevelObj& operator=(const LevelObj& other);
+  void initiate();
+  int activate();
+  void rd();
+  template<class T>
+  void rd(T f) {
+    file=f;
+    rd();
+  }
+};
+
+extern LevelObj* Level;
+
+class LevelState : public State {
+  int backlvl;
+  std::string file;
+public:
+  LevelState();
+  LevelState(std::string name);
+  LevelState(const char* name);
   int activate();
 };
 

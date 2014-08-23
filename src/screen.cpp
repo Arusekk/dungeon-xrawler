@@ -19,6 +19,7 @@ void Interface::printf_slowly(const char* fmt, ...) {
   va_list params;
   va_start(params, fmt);
   vsprintf(temptab, fmt, params);
+  va_end(params);
   for (char* it=temptab; *it; it++)
     putchar_slowly(*it);
 }
@@ -53,6 +54,7 @@ void Interface::init() {
   system("title Dungeon Xrawler");
 #endif
   CurrState=new Intro();
+  Save->load();
   CurrState->activate();
   delete CurrState;
   
@@ -88,9 +90,16 @@ char Interface::anykey() {
 }
 
 char Interface::get_letter() {
+  std::string arrows="wsda";
   char ret;
 wrong:
   ret=anykey();
+  if (ret=='\x1b')
+    if ((ret=anykey())=='[') {
+      ret=anykey();
+      if (ret>='A' && ret<='D')
+	ret=arrows[ret-'A'];
+    }
   if (ret<'0' || (ret>'9' && ret<'A') || (ret>'Z' && ret<'a') || ret>'z')
     goto wrong;
   puts("");

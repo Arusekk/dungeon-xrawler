@@ -16,7 +16,7 @@ MazeObject::~MazeObject() {
  * @param n new value of cur_HP to set
  */
 void MazeObject::set_HP(int n) {
-  cur_HP=n;
+  cur_HP=std::min(n,max_HP);
 }
 
 /** Sets max HP of an object

@@ -7,6 +7,7 @@
 #define log_fatal log_fatal_f(__FILE__, __LINE__)
 
 #define log_variable(vv) (log_debug << #vv " = " << log_fmt(vv) << std::endl)
+#define log_ping log_debug << "PING" << std::endl
 
 std::ostream& log_debug_f(const char* file, int line);
 std::ostream& log_info_f(const char* file, int line);

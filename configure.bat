@@ -25,10 +25,11 @@ SET PATH=%PATH%;C:\Dev-Cpp\bin;%place%\windowsstuff
 :AGAIN
 IF EXIST %make% GOTO KK
 ECHO.
-ECHO Please install GnuWin32 make with default settings.
-ECHO When installed, press any key.
+ECHO %infor% Please install GnuWin32 make with default settings.
+ECHO %infor% When installed, press any key.
 PAUSE
 GOTO AGAIN
 
 :KK
+ECHO %succe% Found make! Yay!
 make windows=T

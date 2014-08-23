@@ -7,5 +7,7 @@
 void pass();
 char swapcase(char c);
 std::string swapcase(std::string s);
+std::string stringify(char* str);
+std::string strprintf(const char* fmt, ...);
 
 #endif // HEADER_DUNGEON_XRAWLER_UTILS_HPP

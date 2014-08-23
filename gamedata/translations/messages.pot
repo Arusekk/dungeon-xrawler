@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: dungeon-xrawler 0.05 alpha\n"
+"Project-Id-Version: dungeon-xrawler 0.06 alpha\n"
 "Report-Msgid-Bugs-To: Arusekk <arusekk@gmail.com>\n"
-"POT-Creation-Date: 2014-08-22 15:32+0200\n"
+"POT-Creation-Date: 2014-08-23 11:02+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,76 +18,90 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: ../../src/level.cpp:12 ../../src/menu.cpp:9
+#: ../../src/level.cpp:13
+#, c-format
+msgid "Level of %s"
+msgstr ""
+
+#: ../../src/level.cpp:16
+msgid "You haven't unlocked this level yet."
+msgstr ""
+
+#: ../../src/level.cpp:17
+#, c-format
+msgid "To unlock it, pass the %s level"
+msgstr ""
+
+#: ../../src/level.cpp:24 ../../src/menu.cpp:9
 #, c-format
 msgid "Welcome, son.\n"
 msgstr ""
 
-#: ../../src/level.cpp:14
+#: ../../src/level.cpp:26
 #, c-format
 msgid "Cash: %d$\n"
 msgstr ""
 
-#: ../../src/level.cpp:15
+#: ../../src/level.cpp:27
 #, c-format
 msgid "Available moves:\n"
 msgstr ""
 
-#: ../../src/level.cpp:17 ../../src/menu.cpp:15
+#: ../../src/level.cpp:29 ../../src/menu.cpp:19
 #, c-format
 msgid "[type the letter preceded by & (in th&is case it's `i') to select]\n"
 msgstr ""
 
-#: ../../src/level.cpp:19 ../../src/menu.cpp:17
+#: ../../src/level.cpp:31 ../../src/menu.cpp:21
 #, c-format
 msgid "[type the underlined letter to select]\n"
 msgstr ""
 
-#: ../../src/level.cpp:37 ../../src/menu.cpp:35
+#: ../../src/level.cpp:49 ../../src/menu.cpp:70
 #, c-format
 msgid "What is your choice? "
 msgstr ""
 
-#: ../../src/level.cpp:44 ../../src/menu.cpp:38
+#: ../../src/level.cpp:56 ../../src/menu.cpp:74 ../../src/menu.cpp:79
 #, c-format
 msgid "No such option."
 msgstr ""
 
-#: ../../src/level.cpp:55
+#: ../../src/level.cpp:67
 #, c-format
 msgid "The path is blocked."
 msgstr ""
 
-#: ../../src/level.cpp:61
+#: ../../src/level.cpp:73
 msgid "You have won."
 msgstr ""
 
-#: ../../src/level.cpp:74
+#: ../../src/level.cpp:79
 msgid "You have lost."
 msgstr ""
 
-#: ../../src/level.cpp:83 ../../src/level.cpp:100
+#: ../../src/level.cpp:102
 msgid "Up (&W)"
 msgstr ""
 
-#: ../../src/level.cpp:84 ../../src/level.cpp:101
+#: ../../src/level.cpp:103
 msgid "Down (&S)"
 msgstr ""
 
-#: ../../src/level.cpp:85 ../../src/level.cpp:102
+#: ../../src/level.cpp:104
 msgid "Left (&A)"
 msgstr ""
 
-#: ../../src/level.cpp:86 ../../src/level.cpp:103
+#: ../../src/level.cpp:105
 msgid "Right (&D)"
 msgstr ""
 
-#: ../../src/level.cpp:88 ../../src/level.cpp:105 ../../src/menu.cpp:53 ../../src/menu.cpp:64
+#: ../../src/level.cpp:107 ../../src/menu.cpp:139
 msgid "&Quit"
 msgstr ""
 
 #. / please leave untranslated the words -h and --help, and the paths like `levels/1.txt'
-#: ../../src/main.cpp:23
+#: ../../src/main.cpp:27
 #, c-format
 msgid ""
 "Usage: `%s [<file> ...]'\n"
@@ -97,7 +111,7 @@ msgid ""
 msgstr ""
 
 #. / please leave `%d` as it is changed into the number
-#: ../../src/main.cpp:30
+#: ../../src/main.cpp:34
 #, c-format
 msgid "showing %d ASCII-image\n"
 msgid_plural "showing %d ASCII-images\n"
@@ -114,20 +128,104 @@ msgstr ""
 msgid "Level Select:\n"
 msgstr ""
 
-#: ../../src/menu.cpp:48
-msgid "Start &Game"
+#: ../../src/menu.cpp:15
+#, c-format
+msgid "Help:\n"
 msgstr ""
 
-#: ../../src/menu.cpp:49
-msgid "&Level select"
+#: ../../src/menu.cpp:17
+#, c-format
+msgid "Settings:\n"
 msgstr ""
 
-#: ../../src/menu.cpp:50
+#: ../../src/menu.cpp:99
+msgid "&Continue"
+msgstr ""
+
+#: ../../src/menu.cpp:100
+msgid "New &Game"
+msgstr ""
+
+#: ../../src/menu.cpp:101
 msgid "&Help"
 msgstr ""
 
-#: ../../src/menu.cpp:51
+#: ../../src/menu.cpp:102
 msgid "&Settings"
+msgstr ""
+
+#: ../../src/menu.cpp:110
+#, c-format
+msgid "Start from level &%d"
+msgstr ""
+
+#: ../../src/menu.cpp:115
+msgid "The idea is that you walk"
+msgstr ""
+
+#: ../../src/menu.cpp:116
+msgid "through dungeons and look"
+msgstr ""
+
+#: ../../src/menu.cpp:117
+msgid "for coins. You can obtain"
+msgstr ""
+
+#: ../../src/menu.cpp:118
+msgid "different armors or maybe"
+msgstr ""
+
+#: ../../src/menu.cpp:119
+msgid "weapons to fight varied"
+msgstr ""
+
+#: ../../src/menu.cpp:120
+msgid "kinds of enemies."
+msgstr ""
+
+#: ../../src/menu.cpp:122
+msgid "There are many tile types:"
+msgstr ""
+
+#: ../../src/menu.cpp:123
+msgid " - # - plain wall, that you"
+msgstr ""
+
+#: ../../src/menu.cpp:124
+msgid "       can't pass through"
+msgstr ""
+
+#: ../../src/menu.cpp:125
+msgid " - & - trap, that kills you"
+msgstr ""
+
+#: ../../src/menu.cpp:126
+msgid "       whenever you enter it"
+msgstr ""
+
+#: ../../src/menu.cpp:127
+msgid " - $ - coin (as it looks like)"
+msgstr ""
+
+#: ../../src/menu.cpp:128
+msgid " - @ - you"
+msgstr ""
+
+#: ../../src/menu.cpp:129
+msgid " -   - empty space"
+msgstr ""
+
+#: ../../src/menu.cpp:131
+#, no-c-format
+msgid " - % - a chest with special"
+msgstr ""
+
+#: ../../src/menu.cpp:132
+msgid "       contents waiting for you"
+msgstr ""
+
+#: ../../src/menu.cpp:135
+msgid "&Controls"
 msgstr ""
 
 #. / HP is an international shortcut for Health Points

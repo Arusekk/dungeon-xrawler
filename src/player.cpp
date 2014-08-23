@@ -59,32 +59,54 @@ PlayerObject& PlayerObject::operator=(const PlayerObject& other) {
 
 int PlayerObject::won(int side) {
   Board* Brd;
+  int ret;
   std::pair<int,int> newpos=movexy(curx,cury,side);
-  curx=newpos.first;
-  cury=newpos.second;
-  switch (bound_board->get(curx,cury)) {
+  switch (bound_board->get(newpos)) {
     case '&':
-      coins=0;
-      return 2;
+      set_HP(cur_HP-rand()%5-5);
+      if (cur_HP<=0) {
+	coins=0;
+	ret=2;
+	break;
+      }
+    case '#':
+      ret=3;
+      break;
     case 'E':
-      return 1;
+      ret=1;
+      break;
     case '%':
       Brd=new Board;
       Brd->rd("art/weapons/dagger.txt");
       Brd->out();
       delete Brd;
       if (1)
-	bound_board->set(curx,cury,' ');
+	bound_board->set(newpos,' ');
       UI->sleep(500);
       UI->pause();
-      return 0;
+      ret=0;
+      break;
     case '$':
-      bound_board->set(curx,cury,' ');
+      bound_board->set(newpos,' ');
       coins++;
-      return 0;
+      ret=0;
+      break;
+    case '+':
+      set_HP(cur_HP+10);
+      ret=0;
+      break;
     default:
-      return 0;
+      ret=0;
+      break;
   }
+  if (ret==3) {
+    ret=0;
+  }
+  else {
+    curx=newpos.first;
+    cury=newpos.second;
+  }
+  return ret;
 }
 
 bool PlayerObject::allowpoz(int side) {
@@ -96,8 +118,11 @@ int PlayerObject::allowpoz() {
 }
 
 void PlayerObject::bind_board(Board* Brd) {
+  if (bound_board)
+    bound_board->bound=false;
   bound_board=Brd;
   Brd->set_player();
+  Brd->bound=true;
 }
 
 /* EOF */

@@ -9,6 +9,7 @@ public:
   Menu();
   Menu(int n);
   ~Menu();
+  void initiate();
   int activate();
 };
 

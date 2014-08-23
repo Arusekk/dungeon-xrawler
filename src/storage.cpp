@@ -45,11 +45,16 @@ void Board::rd(std::string filename) {
 void Board::rd(const char* filename) {
   fn=filename;
   int i,j;
-  char buf[7];
+  char buf[16];
   char* linia;
   bool flag;
   FILE* fp;
-  log_variable(fn);
+  if (access(filename,F_OK)) {
+    log_fatal << "OMFG no such file:" << std::endl;
+    log_variable(fn);
+    h=w=curx=cury=0;
+    return;
+  }
   fp=fopen(filename,"r");
 
   fgets(buf, 7, fp);
@@ -67,6 +72,17 @@ void Board::rd(const char* filename) {
   fgets(buf, 7, fp);
   buf[4]='\0';
   cury=atoi(buf);
+
+  if (curx!=9999 && cury!=9999) {
+    fgets(buf, 16, fp);
+    for (i=0; buf[i]>=' '; i++);
+    buf[i]='\0';
+    prev=buf;
+    fgets(buf, 16, fp);
+    for (i=0; buf[i]>=' '; i++);
+    buf[i]='\0';
+    next=buf;
+  }
 
   xvmalloc(linia,w+3);
   for (i=0; i<h; i++) {
@@ -102,7 +118,7 @@ char Board::get(int x, int y) {
 }
 
 char Board::get(std::pair<int,int> poz) {
-  return get(poz.first, poz.second);
+  return this->get(poz.first, poz.second);
 }
 
 /** Changes one cell of the board
@@ -111,85 +127,58 @@ char Board::get(std::pair<int,int> poz) {
  * @param val new content of the cell
  */
 void Board::set(int x, int y, char val) {
+  if (y>=h || y<0 || x>=w || x<0) return;
   inboard[y][x]=val;
+}
+
+void Board::set(std::pair<int,int> xy, char val) {
+  this->set(xy.first, xy.second, val);
 }
 
 /** Outputs the whole board to the ui
  */
 void Board::out() {
+  out_slowly(0);
+}
+void Board::out_slowly(int ms) {
   int i,j;
   char c;
   for (i=0; i<h; i++) {
     for (j=0; j<w; j++) {
       c=inboard[i][j];
-      if (i==Player->cury && j==Player->curx) {
+      if (bound && i==Player->cury && j==Player->curx) {
 	c='@';
       }
 #ifndef __WIN32
-      printf("\x1b[1");
       if (c=='#')
-	printf(";37;44");
+	printf("\x1b[1;44m");
       if (c==' ')
-	printf(";37;40");
+	printf("\x1b[1m");
       if (c=='&')
-	printf(";31;40");
+	printf("\x1b[1;31m");
       if (c=='@')
-	printf(";32;40");
+	printf("\x1b[1;32m");
       if (c=='$')
-	printf(";33;40");
+	printf("\x1b[1;33m");
       if (c=='%')
-	printf(";34;40");
+	printf("\x1b[1;34m");
       if (c=='E')
-	printf(";35;40");
-      putchar('m');
+	printf("\x1b[1;35m");
+      if (c=='+')
+	printf("\x1b[31m");
 #endif
       putchar(c);
 #ifndef __WIN32
-      printf("\x1b[0m");
+      if (c>=' ' && c<='~')
+	printf("\x1b[0m");
 #endif
     }
     puts("");
+    UI->sleep(ms);
   }
 }
 void Board::out_slowly() {
-  int i,j;
-  char c;
-  for (i=0; i<h; i++) {
-    for (j=0; j<w; j++) {
-      c=inboard[i][j];
-      if (i==Player->cury && j==Player->curx) {
-	c='@';
-      }
-#ifndef __WIN32
-      printf("\x1b[1");
-      if (c=='#')
-	printf(";37;44");
-      if (c==' ')
-	printf(";37;40");
-      if (c=='&')
-	printf(";31;40");
-      if (c=='@')
-	printf(";32;40");
-      if (c=='$')
-	printf(";33;40");
-      if (c=='%')
-	printf(";34;40");
-      if (c=='E')
-	printf(";35;40");
-      putchar('m');
-#endif
-      putchar(c);
-#ifndef __WIN32
-      printf("\x1b[0m");
-#endif
-    }
-    puts("");
-    UI->sleep(100);
-    /*
-    for (j=0;j<50000000;j++)
-      pass();
-    */
-  }
+  out_slowly(100);
 }
 
 /** Returns free cells from all the sides
@@ -207,7 +196,7 @@ int Board::allowpoz(int x, int y) {
   return returnval;
 }
 
-Board::Board() : h(0), w(0), curx(0), cury(0), fn(""), bound(false) {
+Board::Board() : h(0), w(0), curx(0), cury(0), fn(""), bound(false), prev("none"), next("none") {
 }
 
 void Board::set_player() {

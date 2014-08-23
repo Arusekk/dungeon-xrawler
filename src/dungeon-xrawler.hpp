@@ -28,6 +28,7 @@
 
 #include "logging.hpp"
 #include "utils.hpp"
+#include "savegame.hpp"
 #include "storage.hpp"
 #include "mazeobject.hpp"
 #include "player.hpp"

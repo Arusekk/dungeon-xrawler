@@ -1,5 +1,7 @@
 #include "dungeon-xrawler.hpp"
 
+LevelObj* Level;
+
 int main(int argc, char* argv[]) {
   char* arg0;
   xvmalloc(arg0,strlen(argv[0])+1);
@@ -11,7 +13,9 @@ int main(int argc, char* argv[]) {
   bindtextdomain("dungeon-xrawler","translations");
   textdomain("dungeon-xrawler");
   
+  srand((uint)time(0));
   
+  Level=new LevelObj;
   if (argc>1) {
     std::vector<std::string> args;
     for (int i=0; i<argc; i++) {
