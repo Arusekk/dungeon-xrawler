@@ -31,6 +31,10 @@ dungeon-xrawler.desktop: src/templates/dungeon-xrawler.desktop
 	$Qchmod +x $@ || true
 	$Qtest -f "$${XDG_CONFIG_HOME:-$$HOME/.config}/user-dirs.dirs" && . "$${XDG_CONFIG_HOME:-$$HOME/.config}/user-dirs.dirs" && export XDG_DESKTOP_DIR XDG_DOWNLOAD_DIR XDG_TEMPLATES_DIR XDG_PUBLICSHARE_DIR XDG_DOCUMENTS_DIR XDG_MUSIC_DIR XDG_PICTURES_DIR XDG_VIDEOS_DIR && cp -a "$@" "$$XDG_DESKTOP_DIR" && echo -e '${succe} Copied desktop shortcut to' "$$XDG_DESKTOP_DIR" || echo -e '${infor} problem with XDG desktop directory, which should have been set in' "\`$${XDG_CONFIG_HOME:-$$HOME/.config}/user-dirs.dirs'"
 
+#link TIMESTRUCT=struct.pack('<Q', int(((time.time())+11644485840.0)*10000000))
+dungeon-xrawler.lnk: src/templates/dungeon-xrawler.lnk
+	$Qecho -en '$(call template,${<F})' >$@
+
 pkg.tgz: dungeon-xrawler dungeon-xrawler.desktop
 	$Qtar -czf pkg.tgz gamedata/translations/*.po gamedata/translations/*/ gamedata/art gamedata/levels dungeon-xrawler dungeon-xrawler.desktop
 

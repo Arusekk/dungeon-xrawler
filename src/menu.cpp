@@ -1,10 +1,11 @@
 #include "dungeon-xrawler.hpp"
 
 int Menu::activate() {
-  unsigned int i, indx=0;
+  unsigned int i, indx;
   int ret;
   char c;
 reload_menu:
+  indx=0;
   UI->clear();
   printf(_("Welcome, son.\n"));
   if (kind==0)
@@ -21,7 +22,7 @@ reload_menu:
   printf(_("[type the underlined letter to select]\n"));
 #endif
   foreach(options,opt) {
-    if (indx==0 && Level->Brd->h==0 && Level->Brd->w==0) {
+    if (kind==0 && indx==0 && Level->Brd->h==0 && Level->Brd->w==0) {
       indx++;
       continue;
     }

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dungeon-xrawler 0.05 alpha\n"
 "Report-Msgid-Bugs-To: Arusekk <arusekk@gmail.com>\n"
-"POT-Creation-Date: 2014-08-23 11:02+0200\n"
+"POT-Creation-Date: 2014-08-23 15:05+0200\n"
 "PO-Revision-Date: 2014-08-22 22:27+0200\n"
 "Last-Translator: Arusekk <arusekk@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -34,7 +34,7 @@ msgstr "Jeszcze nie odblokowałeś tego poziomu."
 msgid "To unlock it, pass the %s level"
 msgstr "Aby go odblokować, przejdź poziom %s"
 
-#: ../../src/level.cpp:24 ../../src/menu.cpp:9
+#: ../../src/level.cpp:24 ../../src/menu.cpp:10
 #, c-format
 msgid "Welcome, son.\n"
 msgstr "Witaj, synu.\n"
@@ -49,22 +49,22 @@ msgstr "Gotówka: %d,-\n"
 msgid "Available moves:\n"
 msgstr "Dostępne ruchy:\n"
 
-#: ../../src/level.cpp:29 ../../src/menu.cpp:19
+#: ../../src/level.cpp:29 ../../src/menu.cpp:20
 #, c-format
 msgid "[type the letter preceded by & (in th&is case it's `i') to select]\n"
 msgstr "[podaj literę poprzedzoną przez & (w t&ym przypadku `y') aby wybrać]\n"
 
-#: ../../src/level.cpp:31 ../../src/menu.cpp:21
+#: ../../src/level.cpp:31 ../../src/menu.cpp:22
 #, c-format
 msgid "[type the underlined letter to select]\n"
 msgstr "[podaj podkreśloną literę aby wybrać]\n"
 
-#: ../../src/level.cpp:49 ../../src/menu.cpp:70
+#: ../../src/level.cpp:49 ../../src/menu.cpp:71
 #, c-format
 msgid "What is your choice? "
 msgstr "Jaki jest twój wybór? "
 
-#: ../../src/level.cpp:56 ../../src/menu.cpp:74 ../../src/menu.cpp:79
+#: ../../src/level.cpp:56 ../../src/menu.cpp:78 ../../src/menu.cpp:87
 #, c-format
 msgid "No such option."
 msgstr "Nie ma takiej opcji."
@@ -98,7 +98,7 @@ msgstr "W Lewo (&A)"
 msgid "Right (&D)"
 msgstr "W Prawo (&D)"
 
-#: ../../src/level.cpp:107 ../../src/menu.cpp:139
+#: ../../src/level.cpp:107 ../../src/menu.cpp:147
 msgid "&Quit"
 msgstr "Wyjdź (&Q)"
 
@@ -125,114 +125,114 @@ msgstr[0] "pokazywanie %d obrazka ASCII\n"
 msgstr[1] "pokazywanie %d obrazków ASCII\n"
 msgstr[2] "pokazywanie %d obrazków ASCII\n"
 
-#: ../../src/menu.cpp:11
+#: ../../src/menu.cpp:12
 #, c-format
 msgid "Main Menu:\n"
 msgstr "Menu Główne:\n"
 
-#: ../../src/menu.cpp:13
+#: ../../src/menu.cpp:14
 #, c-format
 msgid "Level Select:\n"
 msgstr "Wybór Poziomu:\n"
 
-#: ../../src/menu.cpp:15
+#: ../../src/menu.cpp:16
 #, c-format
 msgid "Help:\n"
 msgstr "Pomoc:\n"
 
-#: ../../src/menu.cpp:17
+#: ../../src/menu.cpp:18
 #, c-format
 msgid "Settings:\n"
 msgstr "Ustawienia:\n"
 
-#: ../../src/menu.cpp:99
+#: ../../src/menu.cpp:107
 msgid "&Continue"
 msgstr "Kontynuuj (&C)"
 
-#: ../../src/menu.cpp:100
+#: ../../src/menu.cpp:108
 msgid "New &Game"
 msgstr "Nowa &Gra"
 
-#: ../../src/menu.cpp:101
+#: ../../src/menu.cpp:109
 msgid "&Help"
 msgstr "Pomoc (&H)"
 
-#: ../../src/menu.cpp:102
+#: ../../src/menu.cpp:110
 msgid "&Settings"
 msgstr "U&stawienia"
 
-#: ../../src/menu.cpp:110
+#: ../../src/menu.cpp:118
 #, c-format
 msgid "Start from level &%d"
 msgstr "Zacznij od poziomu &%d"
 
-#: ../../src/menu.cpp:115
+#: ../../src/menu.cpp:123
 msgid "The idea is that you walk"
 msgstr "Pomysł jest taki, że chodzisz"
 
-#: ../../src/menu.cpp:116
+#: ../../src/menu.cpp:124
 msgid "through dungeons and look"
 msgstr "po lochach i szukasz"
 
-#: ../../src/menu.cpp:117
+#: ../../src/menu.cpp:125
 msgid "for coins. You can obtain"
 msgstr "monet. Możesz zdobyć"
 
-#: ../../src/menu.cpp:118
+#: ../../src/menu.cpp:126
 msgid "different armors or maybe"
 msgstr "różne zbroje lub może"
 
-#: ../../src/menu.cpp:119
+#: ../../src/menu.cpp:127
 msgid "weapons to fight varied"
 msgstr "broń, by zwalczać różne"
 
-#: ../../src/menu.cpp:120
+#: ../../src/menu.cpp:128
 msgid "kinds of enemies."
 msgstr "rodzaje wrogów."
 
-#: ../../src/menu.cpp:122
+#: ../../src/menu.cpp:130
 msgid "There are many tile types:"
 msgstr "Jest wiele rodzajów płytek:"
 
-#: ../../src/menu.cpp:123
+#: ../../src/menu.cpp:131
 msgid " - # - plain wall, that you"
 msgstr " - # - zwykła ściana, przez którą"
 
-#: ../../src/menu.cpp:124
+#: ../../src/menu.cpp:132
 msgid "       can't pass through"
 msgstr "       nie możesz przejść"
 
-#: ../../src/menu.cpp:125
+#: ../../src/menu.cpp:133
 msgid " - & - trap, that kills you"
 msgstr " - & - pułapka, która cię zabija"
 
-#: ../../src/menu.cpp:126
+#: ../../src/menu.cpp:134
 msgid "       whenever you enter it"
 msgstr "       kiedy w nią wejdziesz"
 
-#: ../../src/menu.cpp:127
+#: ../../src/menu.cpp:135
 msgid " - $ - coin (as it looks like)"
 msgstr " - $ - moneta (na jaką wygląda)"
 
-#: ../../src/menu.cpp:128
+#: ../../src/menu.cpp:136
 msgid " - @ - you"
 msgstr " - @ - ty"
 
-#: ../../src/menu.cpp:129
+#: ../../src/menu.cpp:137
 msgid " -   - empty space"
 msgstr " -   - pusta przestrzeń"
 
 # %% is strange here
-#: ../../src/menu.cpp:131
+#: ../../src/menu.cpp:139
 #, no-c-format
 msgid " - % - a chest with special"
 msgstr " - % - skrzynia ze specjalną"
 
-#: ../../src/menu.cpp:132
+#: ../../src/menu.cpp:140
 msgid "       contents waiting for you"
 msgstr "       zawartością czekającą na ciebie"
 
-#: ../../src/menu.cpp:135
+#: ../../src/menu.cpp:143
 msgid "&Controls"
 msgstr "Klawisze (&C)"
 

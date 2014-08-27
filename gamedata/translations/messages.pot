@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dungeon-xrawler 0.06 alpha\n"
 "Report-Msgid-Bugs-To: Arusekk <arusekk@gmail.com>\n"
-"POT-Creation-Date: 2014-08-23 11:02+0200\n"
+"POT-Creation-Date: 2014-08-23 15:05+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,7 +32,7 @@ msgstr ""
 msgid "To unlock it, pass the %s level"
 msgstr ""
 
-#: ../../src/level.cpp:24 ../../src/menu.cpp:9
+#: ../../src/level.cpp:24 ../../src/menu.cpp:10
 #, c-format
 msgid "Welcome, son.\n"
 msgstr ""
@@ -47,22 +47,22 @@ msgstr ""
 msgid "Available moves:\n"
 msgstr ""
 
-#: ../../src/level.cpp:29 ../../src/menu.cpp:19
+#: ../../src/level.cpp:29 ../../src/menu.cpp:20
 #, c-format
 msgid "[type the letter preceded by & (in th&is case it's `i') to select]\n"
 msgstr ""
 
-#: ../../src/level.cpp:31 ../../src/menu.cpp:21
+#: ../../src/level.cpp:31 ../../src/menu.cpp:22
 #, c-format
 msgid "[type the underlined letter to select]\n"
 msgstr ""
 
-#: ../../src/level.cpp:49 ../../src/menu.cpp:70
+#: ../../src/level.cpp:49 ../../src/menu.cpp:71
 #, c-format
 msgid "What is your choice? "
 msgstr ""
 
-#: ../../src/level.cpp:56 ../../src/menu.cpp:74 ../../src/menu.cpp:79
+#: ../../src/level.cpp:56 ../../src/menu.cpp:78 ../../src/menu.cpp:87
 #, c-format
 msgid "No such option."
 msgstr ""
@@ -96,7 +96,7 @@ msgstr ""
 msgid "Right (&D)"
 msgstr ""
 
-#: ../../src/level.cpp:107 ../../src/menu.cpp:139
+#: ../../src/level.cpp:107 ../../src/menu.cpp:147
 msgid "&Quit"
 msgstr ""
 
@@ -118,113 +118,113 @@ msgid_plural "showing %d ASCII-images\n"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../../src/menu.cpp:11
+#: ../../src/menu.cpp:12
 #, c-format
 msgid "Main Menu:\n"
 msgstr ""
 
-#: ../../src/menu.cpp:13
+#: ../../src/menu.cpp:14
 #, c-format
 msgid "Level Select:\n"
 msgstr ""
 
-#: ../../src/menu.cpp:15
+#: ../../src/menu.cpp:16
 #, c-format
 msgid "Help:\n"
 msgstr ""
 
-#: ../../src/menu.cpp:17
+#: ../../src/menu.cpp:18
 #, c-format
 msgid "Settings:\n"
 msgstr ""
 
-#: ../../src/menu.cpp:99
+#: ../../src/menu.cpp:107
 msgid "&Continue"
 msgstr ""
 
-#: ../../src/menu.cpp:100
+#: ../../src/menu.cpp:108
 msgid "New &Game"
 msgstr ""
 
-#: ../../src/menu.cpp:101
+#: ../../src/menu.cpp:109
 msgid "&Help"
 msgstr ""
 
-#: ../../src/menu.cpp:102
+#: ../../src/menu.cpp:110
 msgid "&Settings"
 msgstr ""
 
-#: ../../src/menu.cpp:110
+#: ../../src/menu.cpp:118
 #, c-format
 msgid "Start from level &%d"
 msgstr ""
 
-#: ../../src/menu.cpp:115
+#: ../../src/menu.cpp:123
 msgid "The idea is that you walk"
 msgstr ""
 
-#: ../../src/menu.cpp:116
+#: ../../src/menu.cpp:124
 msgid "through dungeons and look"
 msgstr ""
 
-#: ../../src/menu.cpp:117
+#: ../../src/menu.cpp:125
 msgid "for coins. You can obtain"
 msgstr ""
 
-#: ../../src/menu.cpp:118
+#: ../../src/menu.cpp:126
 msgid "different armors or maybe"
 msgstr ""
 
-#: ../../src/menu.cpp:119
+#: ../../src/menu.cpp:127
 msgid "weapons to fight varied"
 msgstr ""
 
-#: ../../src/menu.cpp:120
+#: ../../src/menu.cpp:128
 msgid "kinds of enemies."
 msgstr ""
 
-#: ../../src/menu.cpp:122
+#: ../../src/menu.cpp:130
 msgid "There are many tile types:"
 msgstr ""
 
-#: ../../src/menu.cpp:123
+#: ../../src/menu.cpp:131
 msgid " - # - plain wall, that you"
 msgstr ""
 
-#: ../../src/menu.cpp:124
+#: ../../src/menu.cpp:132
 msgid "       can't pass through"
 msgstr ""
 
-#: ../../src/menu.cpp:125
+#: ../../src/menu.cpp:133
 msgid " - & - trap, that kills you"
 msgstr ""
 
-#: ../../src/menu.cpp:126
+#: ../../src/menu.cpp:134
 msgid "       whenever you enter it"
 msgstr ""
 
-#: ../../src/menu.cpp:127
+#: ../../src/menu.cpp:135
 msgid " - $ - coin (as it looks like)"
 msgstr ""
 
-#: ../../src/menu.cpp:128
+#: ../../src/menu.cpp:136
 msgid " - @ - you"
 msgstr ""
 
-#: ../../src/menu.cpp:129
+#: ../../src/menu.cpp:137
 msgid " -   - empty space"
 msgstr ""
 
-#: ../../src/menu.cpp:131
+#: ../../src/menu.cpp:139
 #, no-c-format
 msgid " - % - a chest with special"
 msgstr ""
 
-#: ../../src/menu.cpp:132
+#: ../../src/menu.cpp:140
 msgid "       contents waiting for you"
 msgstr ""
 
-#: ../../src/menu.cpp:135
+#: ../../src/menu.cpp:143
 msgid "&Controls"
 msgstr ""
 

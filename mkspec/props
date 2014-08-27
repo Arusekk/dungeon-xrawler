@@ -6,7 +6,7 @@ VERBOSE?=0
 
 CXXFLAGS:=-O2 -Wall -Wextra -Wshadow -Werror -Wnon-virtual-dtor -Wconversion -Weffc++ -Wcast-qual -Winit-self -pedantic -ansi -lm --std=gnu++0x
 
-
+nothing:=
 define semicolon_sign
 ;
 endef
