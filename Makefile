@@ -2,7 +2,7 @@ include mkspec/props
 place:=$(shell pwd)
 pathescape=$(subst /,\/,$1)
 
-.PHONY: default-target all clean src build translate misc miscclean vacuum
+.PHONY: default-target all clean src build translate misc miscclean vacuum kate
 
 default-target: all
 
@@ -40,3 +40,6 @@ pkg.tgz: dungeon-xrawler dungeon-xrawler.desktop
 
 vacuum:
 	${RM} -r src build configure Makefile INSTALL VERSION
+
+kate:
+	$Qfor i in `find ..`; do file $$i |grep text |grep -vEq '[.]git' && kate $$i || true; done
