@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dungeon-xrawler 0.06 alpha\n"
 "Report-Msgid-Bugs-To: Arusekk <arusekk@gmail.com>\n"
-"POT-Creation-Date: 2014-08-23 15:05+0200\n"
+"POT-Creation-Date: 2014-12-23 16:49+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -96,7 +96,7 @@ msgstr ""
 msgid "Right (&D)"
 msgstr ""
 
-#: ../../src/level.cpp:107 ../../src/menu.cpp:147
+#: ../../src/level.cpp:107 ../../src/menu.cpp:150
 msgid "&Quit"
 msgstr ""
 
@@ -196,7 +196,7 @@ msgid "       can't pass through"
 msgstr ""
 
 #: ../../src/menu.cpp:133
-msgid " - & - trap, that kills you"
+msgid " - & - trap, that drains HPs"
 msgstr ""
 
 #: ../../src/menu.cpp:134
@@ -224,7 +224,19 @@ msgstr ""
 msgid "       contents waiting for you"
 msgstr ""
 
+#: ../../src/menu.cpp:141
+msgid " - + - a medical wonder going to"
+msgstr ""
+
+#: ../../src/menu.cpp:142
+msgid "       replenish your HPs"
+msgstr ""
+
 #: ../../src/menu.cpp:143
+msgid " - E - level exit"
+msgstr ""
+
+#: ../../src/menu.cpp:146
 msgid "&Controls"
 msgstr ""
 

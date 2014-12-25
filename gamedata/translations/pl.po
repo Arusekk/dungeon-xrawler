@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dungeon-xrawler 0.05 alpha\n"
 "Report-Msgid-Bugs-To: Arusekk <arusekk@gmail.com>\n"
-"POT-Creation-Date: 2014-08-23 15:05+0200\n"
-"PO-Revision-Date: 2014-08-22 22:27+0200\n"
+"POT-Creation-Date: 2014-12-23 16:49+0100\n"
+"PO-Revision-Date: 2014-12-23 16:51+0100\n"
 "Last-Translator: Arusekk <arusekk@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -98,7 +98,7 @@ msgstr "W Lewo (&A)"
 msgid "Right (&D)"
 msgstr "W Prawo (&D)"
 
-#: ../../src/level.cpp:107 ../../src/menu.cpp:147
+#: ../../src/level.cpp:107 ../../src/menu.cpp:150
 msgid "&Quit"
 msgstr "Wyjdź (&Q)"
 
@@ -203,8 +203,8 @@ msgid "       can't pass through"
 msgstr "       nie możesz przejść"
 
 #: ../../src/menu.cpp:133
-msgid " - & - trap, that kills you"
-msgstr " - & - pułapka, która cię zabija"
+msgid " - & - trap, that drains HPs"
+msgstr " - & - pułapka, która zabiera HP"
 
 #: ../../src/menu.cpp:134
 msgid "       whenever you enter it"
@@ -232,7 +232,19 @@ msgstr " - % - skrzynia ze specjalną"
 msgid "       contents waiting for you"
 msgstr "       zawartością czekającą na ciebie"
 
+#: ../../src/menu.cpp:141
+msgid " - + - a medical wonder going to"
+msgstr " - + - medyczny cud, który chce"
+
+#: ../../src/menu.cpp:142
+msgid "       replenish your HPs"
+msgstr "       uzupełnić twoje HP"
+
 #: ../../src/menu.cpp:143
+msgid " - E - level exit"
+msgstr " - E - wyjście z poziomu"
+
+#: ../../src/menu.cpp:146
 msgid "&Controls"
 msgstr "Klawisze (&C)"
 

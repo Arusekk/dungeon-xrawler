@@ -130,7 +130,7 @@ void Menu::initiate() {
     options.push_back(_("There are many tile types:"));
     options.push_back(_(" - # - plain wall, that you"));
     options.push_back(_("       can't pass through"));
-    options.push_back(_(" - & - trap, that kills you"));
+    options.push_back(_(" - & - trap, that drains HPs"));
     options.push_back(_("       whenever you enter it"));
     options.push_back(_(" - $ - coin (as it looks like)"));
     options.push_back(_(" - @ - you"));
@@ -138,6 +138,9 @@ void Menu::initiate() {
     /// xgettext:no-c-format please very much
     options.push_back(_(" - % - a chest with special"));
     options.push_back(_("       contents waiting for you"));
+    options.push_back(_(" - + - a medical wonder going to"));
+    options.push_back(_("       replenish your HPs"));
+    options.push_back(_(" - E - level exit"));
   }
   if (kind==3) {
     options.push_back(_("&Controls"));
