@@ -43,7 +43,8 @@ void Interface::clear() {
 #ifdef __WIN32
   system("cls");
 #else
-  system("clear");
+//   system("clear");
+  printf("\x1b[H\x1b[J");
 #endif
 }
 
