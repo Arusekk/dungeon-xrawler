@@ -42,4 +42,4 @@ vacuum:
 	${RM} -r src build configure Makefile INSTALL VERSION
 
 kate:
-	$Qfor i in `find ..`; do file $$i |grep text |grep -vEq '[.]git' && kate $$i || true; done
+	$Qfor i in `find ..`; do file $$i |grep text |grep -vEq '[.]git' && $@ $$i || true; done
