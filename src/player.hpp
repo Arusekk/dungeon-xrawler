@@ -15,6 +15,7 @@ public:
   int won(int side);
   int allowpoz();
   bool allowpoz(int side);
+  void show_inventory();
 };
 
 extern PlayerObject* Player;

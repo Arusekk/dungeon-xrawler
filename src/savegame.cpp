@@ -34,7 +34,7 @@ void Savegame::load() {
 
 void Savegame::save() {
   FILE* fp=fopen(file.c_str(),"w");
-  fprintf(fp, "DXsave\n%04lu\n", passed.size());
+  fprintf(fp, "DXsave\n%04lu\n", (unsigned long)passed.size());
   foreach(passed, it) {
     fputs(it->c_str(), fp);
     fputc('\n', fp);

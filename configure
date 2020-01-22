@@ -28,7 +28,7 @@ fatal="${mreset1}[${mred}FATAL${mreset1}]${mreset2}"
 
 echo -e "${infor} Looking for gettext *.po -> *.mo translator ..."
 
-gettext_ver=`msgfmt --version 2>/dev/null|head -n 1`
+gettext_ver=`msgfmt --version 2>/dev/null|head -1`
 if [ -z "$gettext_ver" ]; then
   echo -e "${infor} No \`msgfmt' found (you have to know English since now). Skipping..."
 else
@@ -62,7 +62,7 @@ else
 fi
 
 echo -e "${infor} Looking for \`make' ..."
-make_ver=`make --version 2>/dev/null|head -n 1`
+make_ver=`make --version 2>/dev/null|head -1`
 if [ -z "$make_ver" ]; then
   echo -e "${fatal} No \`make' found. Giving up."
   youcaninstal make

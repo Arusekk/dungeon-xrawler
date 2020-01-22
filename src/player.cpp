@@ -125,4 +125,8 @@ void PlayerObject::bind_board(Board* Brd) {
   Brd->bound=true;
 }
 
+void PlayerObject::show_inventory() {
+  
+}
+
 /* EOF */
